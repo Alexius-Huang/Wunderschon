@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.4.1
+bundler_args: --jobs 1 --retry 3
+dist: trusty
+sudo: required
+script:
+  - bundle exec rake db:setup
+  - bundle exec rspec
+cache: bundler
+services:
+  - sqlite3
