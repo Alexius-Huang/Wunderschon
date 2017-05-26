@@ -50,6 +50,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'shoulda'
+  gem 'rubocop'
 end
 
 group :development do
