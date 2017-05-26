@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   include AASM
+  acts_as_paranoid
   has_many :order_items
   enum status: Settings.order.statuses
 
