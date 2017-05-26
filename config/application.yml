@@ -1,0 +1,15 @@
+# config/application.yml
+defaults: &defaults
+  product:
+    statuses:
+      available: available
+      unavailable: unavailable
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

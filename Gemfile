@@ -39,6 +39,7 @@ gem 'settingslogic'
 gem 'aasm'
 gem 'simple_form'
 gem 'bootstrap-sass'
+gem "paranoia", "~> 2.2"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,6 +52,7 @@ group :development, :test do
   gem 'faker'
   gem 'shoulda'
   gem 'rubocop'
+  gem 'awesome_print'
 end
 
 group :development do

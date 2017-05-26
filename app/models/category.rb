@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
-  has_many :products
+  acts_as_paranoid
+  has_many :products, dependent: :destroy
 
   validates :title, :description, presence: true
 end
