@@ -10,3 +10,5 @@ script:
 cache: bundler
 services:
   - sqlite3
+after_success:
+  - bundle exec codeclimate-test-reporter
