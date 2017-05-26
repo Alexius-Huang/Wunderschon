@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :order_item do
-    order nil
-    product nil
-    quantity 1
-    deleted_at "2017-05-26 22:02:23"
+    order    { create(:order) }
+    product  { create(:product) }
+    quantity Faker::Number.between(1, 10)
+    price    Faker::Commerce.price.to_i
   end
 end

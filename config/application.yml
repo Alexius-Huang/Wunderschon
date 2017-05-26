@@ -4,6 +4,13 @@ defaults: &defaults
     statuses:
       available: available
       unavailable: unavailable
+  order:
+    statuses:
+      pending: pending
+      cancelled: cancelled
+      paid: paid
+      rejected: rejected
+      delivered: delivered
 
 development:
   <<: *defaults
