@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   describe 'association' do
     it { is_expected.to belong_to(:category) }
+    it { is_expected.to have_many(:order_details) }
   end
 
   describe 'validation' do
