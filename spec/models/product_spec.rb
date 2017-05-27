@@ -45,4 +45,20 @@ RSpec.describe Product, type: :model do
       end
     end
   end
+
+  describe 'class methods' do
+    # TODO Issue #10
+    # describe '.history_earn' do
+    # end
+  end
+
+  describe 'instance methods' do
+    # TODO Issue #10
+    # describe '.history_earn' do
+    # end
+
+    # TODO Issue #10
+    # describe '.sold_quantity' do
+    # end
+  end
 end
