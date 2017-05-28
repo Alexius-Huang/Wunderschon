@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe OrderItem, type: :model do
@@ -22,7 +23,7 @@ RSpec.describe OrderItem, type: :model do
     end
 
     shared_examples 'pass in negative or zero value' do |method|
-      it "should not pass in negative or zero value of quantity in method: .#{method}" do
+      it "should not update quantity in method: .#{method}" do
         error_msg = 'should pass in quantity larger than zero'
         expect { order_item.send(method, rand(-1..0)) }.to raise_exception(ActiveRecord::Rollback, error_msg)
       end
@@ -30,7 +31,7 @@ RSpec.describe OrderItem, type: :model do
 
     shared_examples 'update quantity when record deleted' do |method|
       before { order_item.increase!(rand(1..10)) if order_item.quantity == 1 }
-      it "should not update quantity when record deleted when using .#{method}" do
+      it "should not update when using .#{method}" do
         order_item.reload
         order_item.destroy!
         error_msg = 'record already being deleted'

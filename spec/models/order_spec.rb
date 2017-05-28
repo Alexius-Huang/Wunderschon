@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
@@ -37,7 +38,7 @@ RSpec.describe Order, type: :model do
     it_should_behave_like 'transitions', :pay,     from: :pending,   to: :paid
     it_should_behave_like 'transitions', :deliver, from: :paid,      to: :delivered
     it_should_behave_like 'transitions', :cancel,  from: :pending,   to: :cancelled
-    it_should_behave_like 'transitions', :reject,  from: :delivered, to: :rejected 
+    it_should_behave_like 'transitions', :reject,  from: :delivered, to: :rejected
   end
 
   describe 'class methods' do
@@ -56,15 +57,15 @@ RSpec.describe Order, type: :model do
       end
     end
 
-    describe '.has_product?' do
+    describe '.product_exist?' do
       it 'should return true if product exist in the order item list' do
         product = order.order_items.sample.product
-        expect(order.has_product?(product)).to be_truthy        
+        expect(order.product_exist?(product)).to be_truthy
       end
 
       it 'should return false if product is not in the order item list' do
         product = create(:product)
-        expect(order.has_product?(product)).to be_falsey
+        expect(order.product_exist?(product)).to be_falsey
       end
     end
 
@@ -97,7 +98,7 @@ RSpec.describe Order, type: :model do
           order.add_item product
           order_item = order.get_order_item_by_product(product)
           expect(order.order_items.count).to eq order_items_count.next
-          expect(order.has_product?(product)).to be_truthy
+          expect(order.product_exist?(product)).to be_truthy
           expect(order_item.quantity).to eq 1
         end
 
@@ -108,14 +109,14 @@ RSpec.describe Order, type: :model do
           order.add_item product
           order_item.reload
           expect(order.order_items.count).to eq order_items_count
-          expect(order.has_product?(product)).to be_truthy
-          expect(order_item.quantity).to be product_order_item_quantity.next  
+          expect(order.product_exist?(product)).to be_truthy
+          expect(order_item.quantity).to be product_order_item_quantity.next
         end
 
         it 'can add second parameter which specifies the quantity to add in the order' do
           product = rand(1..2) == 1 ? create(:product) : order.order_items.sample.product
           increase_quantity = rand(1..10)
-          quantity = order.has_product?(product) ? order.get_order_item_by_product(product).quantity : 0
+          quantity = order.product_exist?(product) ? order.get_order_item_by_product(product).quantity : 0
           order.add_item(product, increase_quantity)
           expect(order.get_order_item_by_product(product).quantity).to eq (quantity + increase_quantity)
         end
@@ -125,7 +126,7 @@ RSpec.describe Order, type: :model do
         shared_examples 'unavailable product' do |spec_title|
           it spec_title do
             error_msg = "#{unavailable_product.title} is unavailable"
-            expect{ order.add_item unavailable_product }.to raise_exception(ActiveRecord::Rollback, error_msg)
+            expect { order.add_item unavailable_product }.to raise_exception(ActiveRecord::Rollback, error_msg)
           end
         end
 
@@ -173,7 +174,7 @@ RSpec.describe Order, type: :model do
         it 'should not delete items which doesn\'t exist in the order item list' do
           product = create(:product)
           error_msg = "#{product.title} is not in order item list"
-          expect(order.has_product?(product)).to be_falsey
+          expect(order.product_exist?(product)).to be_falsey
           expect { order.delete_item(product) }.to raise_exception(ActiveRecord::Rollback, error_msg)
         end
 

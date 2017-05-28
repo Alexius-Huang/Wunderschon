@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Order < ApplicationRecord
   include AASM
   acts_as_paranoid
@@ -12,7 +13,7 @@ class Order < ApplicationRecord
     state :cancelled
     state :delivered
     state :rejected
-    
+
     event :pay do
       transitions from: :pending, to: :paid
     end
@@ -34,18 +35,18 @@ class Order < ApplicationRecord
     order_items.map(&:total_price).sum
   end
 
-  def has_product?(product)
+  def product_exist?(product)
     !order_items.where(product: product).empty?
   end
 
   def get_order_item_by_product(product)
-    order_items.where(product: product).first
+    order_items.find_by(product: product)
   end
 
   def add_item(product, quantity = 1)
     raise_product_unavailable_error(product) if product.unavailable?
     raise_negative_or_zero_quantity_error    if quantity < 1
-    if has_product?(product)
+    if product_exist?(product)
       get_order_item_by_product(product).increase!(quantity)
     else
       order_items.create(product: product, price: product.price, quantity: quantity)
@@ -53,7 +54,7 @@ class Order < ApplicationRecord
   end
 
   def delete_item(product, quantity = 1)
-    raise_product_not_in_order_list(product) unless self.has_product?(product) 
+    raise_product_not_in_order_list(product) unless self.product_exist?(product)
     raise_negative_or_zero_quantity_error    if quantity < 1
     get_order_item_by_product(product).decrease!(quantity)
   end
