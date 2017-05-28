@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 FactoryGirl.define do
   factory :order do
-    name    Faker::Name.name
-    email   Faker::Internet.email
-    address Faker::Address.street_address
-    tel     Faker::PhoneNumber.cell_phone
-    remark  Faker::Lorem.paragraph
-    comment Faker::Lorem.paragraph
+    name    { Faker::Name.name }
+    email   { Faker::Internet.email }
+    address { Faker::Address.street_address }
+    tel     { Faker::PhoneNumber.cell_phone }
+    remark  { Faker::Lorem.paragraph }
+    comment { Faker::Lorem.paragraph }
   end
 
   Settings.order.statuses.keys.each do |type|

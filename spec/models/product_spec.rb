@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
@@ -15,34 +16,44 @@ RSpec.describe Product, type: :model do
 
   describe 'enum' do
     it 'should have status enum' do
-      expect(described_class.statuses.keys).to include("available")
-      expect(described_class.statuses.keys).to include("unavailable")
+      expect(described_class.statuses.keys).to include('available')
+      expect(described_class.statuses.keys).to include('unavailable')
     end
   end
 
   describe 'aasm' do
-    let!(:product)          { create(:product) }
-    let(:available_product) { create(:product, :available) }
-    describe 'initial state' do
-      it 'initial state should be unavailable' do
-        expect(product.unavailable?).to be_truthy
-      end
-    end
-    
+    let!(:product)            { create(:product) }
+    let(:unavailable_product) { create(:product, :unavailable) }
     describe 'transitions' do
       it 'should able to open product under any condition' do
-        expect(product.unavailable?).to be_truthy
-        expect(product.may_open?).to be_truthy
-        product.open!
-        expect(product.available?).to be_truthy
+        expect(unavailable_product.unavailable?).to be_truthy
+        expect(unavailable_product.may_open?).to be_truthy
+        unavailable_product.open!
+        expect(unavailable_product.available?).to be_truthy
       end
 
       it 'should able to close product under any condition' do
-        expect(available_product.available?).to be_truthy
-        expect(available_product.may_close?).to be_truthy
-        available_product.close!
-        expect(available_product.unavailable?).to be_truthy
+        expect(product.available?).to be_truthy
+        expect(product.may_close?).to be_truthy
+        product.close!
+        expect(product.unavailable?).to be_truthy
       end
     end
+  end
+
+  describe 'class methods' do
+    # TODO: Issue #10
+    # describe '.history_earn' do
+    # end
+  end
+
+  describe 'instance methods' do
+    # TODO: Issue #10
+    # describe '.history_earn' do
+    # end
+
+    # TODO: Issue #10
+    # describe '.sold_quantity' do
+    # end
   end
 end

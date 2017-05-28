@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 class Order < ApplicationRecord
   include AASM
   acts_as_paranoid
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   enum status: Settings.order.statuses
 
   validates :name, :email, :address, :tel, presence: true
@@ -12,7 +13,7 @@ class Order < ApplicationRecord
     state :cancelled
     state :delivered
     state :rejected
-    
+
     event :pay do
       transitions from: :pending, to: :paid
     end
@@ -28,5 +29,47 @@ class Order < ApplicationRecord
     event :reject do
       transitions from: :delivered, to: :rejected
     end
+  end
+
+  def total_price
+    order_items.map(&:total_price).sum
+  end
+
+  def product_exist?(product)
+    !order_items.where(product: product).empty?
+  end
+
+  def get_order_item_by_product(product)
+    order_items.find_by(product: product)
+  end
+
+  def add_item(product, quantity = 1)
+    raise_product_unavailable_error(product) if product.unavailable?
+    raise_negative_or_zero_quantity_error    if quantity < 1
+    if product_exist?(product)
+      get_order_item_by_product(product).increase!(quantity)
+    else
+      order_items.create(product: product, price: product.price, quantity: quantity)
+    end
+  end
+
+  def delete_item(product, quantity = 1)
+    raise_product_not_in_order_list(product) unless self.product_exist?(product)
+    raise_negative_or_zero_quantity_error    if quantity < 1
+    get_order_item_by_product(product).decrease!(quantity)
+  end
+
+  private
+
+  def raise_product_unavailable_error(product)
+    raise ActiveRecord::Rollback, "#{product.title} is unavailable"
+  end
+
+  def raise_negative_or_zero_quantity_error
+    raise ActiveRecord::Rollback, 'should pass in quantity larger than zero'
+  end
+
+  def raise_product_not_in_order_list(product)
+    raise ActiveRecord::Rollback, "#{product.title} is not in order item list"
   end
 end
