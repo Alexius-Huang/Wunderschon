@@ -4,9 +4,12 @@ FactoryGirl.define do
     description { Faker::Lorem.paragraph }
     price       { Faker::Commerce.price.to_i }
     category    { create(:category) }
+    status      { 'available' }
   end
 
-  trait :available do
-    status 'available'
+  Product.statuses.keys.each do |type|
+    trait type do
+      status type.to_s
+    end
   end
 end
