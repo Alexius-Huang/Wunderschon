@@ -43,4 +43,18 @@ class Cart
     cart_item.decrease quantity
     @cart_items.delete(cart_item) if cart_item.quantity.zero?
   end
+
+  def to_hash
+    { 'items' => cart_items.map { |item| { 'product_id' => item.product.id, 'quantity' => item.quantity, 'price' => item.price } } }
+  end
+
+  class << self
+    def from_hash(cart_hash)
+      if cart_hash.key? 'items'
+        new cart_hash['items'].map { |item| { product: Product.find(item['product_id']), quantity: item['quantity'], price: item['price'] } }
+      else
+        new
+      end
+    end
+  end
 end

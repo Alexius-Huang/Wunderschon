@@ -13,6 +13,18 @@ RSpec.describe Cart, type: :model do
   let(:sample_product)      { sample_cart_item.product }
   let(:new_product)         { create(:product) }
   let(:unavailable_product) { create(:product, :unavailable) }
+  let(:cart_hash) do
+    cart_item_1 = cart.cart_items[0]
+    cart_item_2 = cart.cart_items[1]
+    product_1   = cart_item_1.product
+    product_2   = cart_item_2.product
+    {
+      'items' => [
+        { 'product_id' => product_1.id, 'quantity' => cart_item_1.quantity, 'price' => cart_item_1.price },
+        { 'product_id' => product_2.id, 'quantity' => cart_item_2.quantity, 'price' => cart_item_2.price }
+      ]
+    }
+  end
 
   describe 'initialize' do
     it 'can initialize new cart without any params' do
@@ -51,7 +63,15 @@ RSpec.describe Cart, type: :model do
 
   describe 'class methods' do
     describe '.from_hash' do
-      it 'can initialize new cart with cart hash'
+      it 'can initialize new cart with cart hash' do
+        new_cart = Cart.from_hash cart_hash
+        expect(new_cart.cart_items.size).to eq 2
+        2.times do |index|
+          expect(new_cart.cart_items[index].product).to eq cart.cart_items[index].product
+          expect(new_cart.cart_items[index].price).to eq cart.cart_items[index].price
+          expect(new_cart.cart_items[index].quantity).to eq cart.cart_items[index].quantity
+        end
+      end
     end
   end
 
@@ -172,7 +192,9 @@ RSpec.describe Cart, type: :model do
     end
 
     describe '.to_hash' do
-      it 'should convert the cart details into a hash value'
+      it 'should convert the cart details into a hash value' do
+        expect(cart.to_hash).to eq cart_hash
+      end
     end
 
     describe '.checkout!' do
