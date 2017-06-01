@@ -8,6 +8,8 @@
 
 [![forthebadge](http://forthebadge.com/images/badges/made-with-ruby.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
+![Wunderschön Rabbit](https://github.com/Maxwell-Alexius/Wunderschon/blob/master/README_Images/root_page.png?raw=true)
+
 ## About
 
 **Wunderschön** means **very gorgeous and wonderful** in German. This project is a kind of online shopping website which is filled with sketches of rabbits and its products.
