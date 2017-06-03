@@ -1,0 +1,76 @@
+function degToRad(degree) { return degree / 180 * Math.PI; }
+
+$(document).ready(function() {
+  $('#entry-btn').animate({ bottom: '25%' }, function() {
+    $(this).addClass('animated rubberBand');
+  });
+
+  /* Generate Rabbit with PixiJS */
+  var app = new PIXI.Application(window.innerWidth, window.innerHeight, { backgroundColor: 0x000000 });
+  document.body.appendChild(app.view);
+
+  // Scale mode for all textures, will retain pixelation
+  PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+
+  var rabbit = PIXI.Sprite.fromImage('<%= asset_path('rabbit-sm.png') %>');
+
+  // Set the initial position
+  rabbit.anchor.set(0.5);
+  rabbit.x = app.renderer.width / 2;
+  rabbit.y = app.renderer.height / 2;
+
+  // Opt-in to interactivity
+  rabbit.interactive = true;
+
+  // Shows hand cursor
+  rabbit.buttonMode = true;
+
+  // Pointers normalize touch and mouse
+  rabbit.on('pointerdown', onClick);
+
+  app.stage.addChild(rabbit);
+
+  function onClick() {
+    rabbit.scale.x -= 0.1;
+    rabbit.scale.y -= 0.1;
+    var random = Math.random();
+    if (random > 0.5) {
+      var obj = PIXI.Sprite.fromImage('<%= asset_path('ruby-sm.png') %>');
+    } else {
+      var obj = PIXI.Sprite.fromImage('<%= asset_path('heart-sm.png') %>');
+    }
+    obj.anchor.set(0.5);
+    var offset = 750;
+    var scale = Math.sqrt(Math.sqrt(Math.random()));
+    var horizontalAmplitude = 30;
+    var rotationalAmplitude = 5;
+    var degree = Math.floor(Math.random() * 360);
+    var xPosition = app.renderer.width  / 2 + Math.ceil(Math.random() * offset) - offset / 2;
+    var yPosition = app.renderer.height / 2 + Math.ceil(Math.random() * offset) - offset / 2
+    obj.x = xPosition + horizontalAmplitude * Math.sin(degToRad(degree));
+    obj.y = yPosition;
+    obj.scale.x *= scale;
+    obj.scale.y *= scale;
+    obj.rotation = rotationalAmplitude * Math.sin(degToRad(degree));
+    app.stage.addChild(obj);
+
+    var setMotion = function() {
+      setTimeout(function() {
+        if (obj.alpha > 0) {
+          degree += 2;
+          obj.x = xPosition + horizontalAmplitude * Math.sin(degToRad(degree));
+          obj.y -= 2;
+          obj.alpha -= 0.005;
+          obj.rotation = rotationalAmplitude * Math.sin(degToRad(degree));
+          setMotion();
+        } else app.stage.removeChild(obj);
+      }, 25);
+    }
+    setMotion();
+
+    setTimeout(function() {
+      rabbit.scale.x += 0.1;
+      rabbit.scale.y += 0.1;
+    }, 200)
+  }
+});
