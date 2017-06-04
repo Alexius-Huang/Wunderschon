@@ -16,3 +16,11 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+html, body {
+  background-color: #111;
+  color: #ddd;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}

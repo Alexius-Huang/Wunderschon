@@ -3,15 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
 
-html, body {
-  background-color: #111;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
 h1#title {
-  color: #ddd;
   position: fixed;
   width: 500px;
   top: 15%;
@@ -44,7 +36,6 @@ button#entry-btn {
 }
 
 button#entry-btn:hover {
-  color: #ddd;
   border-color: #ddd;
   transition: .5s;
 }
