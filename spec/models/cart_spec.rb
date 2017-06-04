@@ -205,17 +205,5 @@ RSpec.describe Cart, type: :model do
         expect(cart.to_hash).to eq cart_hash
       end
     end
-
-    describe '.checkout!' do
-      context 'basic utility' do
-        it 'should create order and order_items from the cart detail and user provided data'
-        it 'should clear cart_items of the cart after checkout successfully'
-      end
-
-      context 'invalid' do
-        it 'should not checkout if the user provided data is empty or invalid'
-        it 'should not checkout if the cart is empty'
-      end
-    end
   end
 end
