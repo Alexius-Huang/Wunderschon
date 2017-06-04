@@ -6,8 +6,8 @@ class CartItem
 
   def initialize(params)
     @product  = params[:product]
-    @quantity = params.has_key?(:quantity) ? params[:quantity] : 1
-    @price    = params.has_key?(:price)    ? params[:price]    : params[:product].price
+    @quantity = params.key?(:quantity) ? params[:quantity] : 1
+    @price    = params.key?(:price)    ? params[:price]    : params[:product].price
   end
 
   def total_price

@@ -1,4 +1,4 @@
-# frozon_string_literal: true
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
@@ -14,14 +14,14 @@ RSpec.describe Cart, type: :model do
   let(:new_product)         { create(:product) }
   let(:unavailable_product) { create(:product, :unavailable) }
   let(:cart_hash) do
-    cart_item_1 = cart.cart_items[0]
-    cart_item_2 = cart.cart_items[1]
-    product_1   = cart_item_1.product
-    product_2   = cart_item_2.product
+    cart_item1 = cart.cart_items[0]
+    cart_item2 = cart.cart_items[1]
+    product1   = cart_item1.product
+    product2   = cart_item2.product
     {
       'items' => [
-        { 'product_id' => product_1.id, 'quantity' => cart_item_1.quantity, 'price' => cart_item_1.price },
-        { 'product_id' => product_2.id, 'quantity' => cart_item_2.quantity, 'price' => cart_item_2.price }
+        { 'product_id' => product1.id, 'quantity' => cart_item1.quantity, 'price' => cart_item1.price },
+        { 'product_id' => product2.id, 'quantity' => cart_item2.quantity, 'price' => cart_item2.price }
       ]
     }
   end
@@ -90,8 +90,8 @@ RSpec.describe Cart, type: :model do
 
     describe '.product_exist?' do
       it 'should returns true if product exist from cart items of cart' do
-        expect(cart.has_product?(new_product)).to be_falsey
-        expect(cart.has_product?(cart.cart_items.sample.product)).to be_truthy
+        expect(cart.product_exist?(new_product)).to be_falsey
+        expect(cart.product_exist?(cart.cart_items.sample.product)).to be_truthy
       end
     end
 
@@ -136,7 +136,7 @@ RSpec.describe Cart, type: :model do
         it 'should create new cart item of the cart if product no exist originally' do
           cart.add_item new_product
           expect(cart.cart_items.size).to eq 3
-          expect(cart.has_product?(new_product)).to be_truthy
+          expect(cart.product_exist?(new_product)).to be_truthy
           expect(cart.get_cart_item_by_product(new_product).quantity).to eq 1
         end
 
