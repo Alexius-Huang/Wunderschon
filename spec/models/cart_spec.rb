@@ -95,6 +95,15 @@ RSpec.describe Cart, type: :model do
       end
     end
 
+    describe '.empty?' do
+      let(:cart) { Cart.new }
+      it 'should returns true if there are no cart_items exist' do
+        expect(cart.empty?).to be_truthy
+        cart.add_item new_product
+        expect(cart.empty?).to be_falsey
+      end
+    end
+
     describe '.get_cart_item_by_product' do
       it 'should get the product if product exist in cart items of cart' do
         expect(cart.get_cart_item_by_product(sample_product)).to eq sample_cart_item

@@ -24,6 +24,10 @@ class Cart
     cart_items.map(&:product).include? product
   end
 
+  def empty?
+    cart_items.empty?
+  end
+
   def get_cart_item_by_product(product)
     cart_items.detect { |cart_item| cart_item.product == product }
   end
