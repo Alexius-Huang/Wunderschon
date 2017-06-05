@@ -17,7 +17,21 @@
 //= require_tree .
 
 $(document).ready(function(){
-	$('#nav-icon').click(function(){
+	var navbarItemCount = $('#mobile-slide-menu').children().length;
+  var navbarItemHeight = 35;
+  var navbarHeight = 45;
+  var unit = 'pt';
+  $('#nav-icon').click(function(){
 		$(this).toggleClass('open');
+    if ($('#mobile-version-navbar').css('display') !== 'none' && $(this).hasClass('open')) {
+      $('#mobile-version-navbar').animate({
+        height: navbarItemCount * navbarItemHeight + navbarHeight + unit
+      }, function() {
+        for (var el of $('#mobile-slide-menu').children()) $(el).fadeIn();
+      });
+    } else {
+      $('#mobile-version-navbar').animate({ height: navbarHeight + unit });
+      for (var el of $('#mobile-slide-menu').children()) $(el).fadeOut();
+    }
 	});
 });

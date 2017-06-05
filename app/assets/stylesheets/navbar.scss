@@ -19,7 +19,15 @@
 }
 .nav-right {
   float: right;
-  padding: 0 5pt;
+  padding: 0 10pt;
+  font-size: 12pt;
+  cursor: pointer;
+  transition: .25s;
+}
+.nav-right:hover {
+  background-color: #888;
+  color: #ddd;
+  transition: .25s;
 }
 #nav-icon {
   width: 25pt;
@@ -84,6 +92,16 @@
   top: 18pt;
   width: 0%;
   left: 50%;
+}
+#mobile-slide-menu > div {
+  box-sizing: border-box;
+  display: none;
+  height: 35pt;
+  line-height: 35pt;
+  font-size: 12pt;
+  margin: 0 5pt;
+  padding-left: 5pt;
+  border-top: 1pt dotted #888;
 }
 
 @media screen and (max-width: 768px) {
