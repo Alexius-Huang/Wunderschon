@@ -2,8 +2,29 @@
   <%= stylesheet_link_tag 'navbar' %>
 <% end %>
 
-<div class="navbar-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div id="mobile-version-navbar" class="navbar-container col-sm-12 col-xs-12 p-0">
   <div class="navbar-body">
-    This is navigation bar
+    <div class="col-md-2 col-sm-2 col-xs-2 p-0">
+
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8 text-center p-0">
+      Wunderschön
+    </div>
+    <div id="nav-icon" class="col-md-2 col-sm-2 col-xs-2 p-0 pull-right">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+<div id="desktop-version-navbar" class="navbar-container col-lg-12 col-md-12">
+  <div class="navbar-body">
+    <ul>
+      <li class="brand">Wunderschön</li>
+      <li class="nav-right">Sign In</li>
+      <li class="nav-right">Sign Up</li>
+    </ul>
   </div>
 </div>

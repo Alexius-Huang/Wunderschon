@@ -15,3 +15,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$('#nav-icon').click(function(){
+		$(this).toggleClass('open');
+	});
+});
