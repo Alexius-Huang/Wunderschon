@@ -2,15 +2,19 @@
   <%= stylesheet_link_tag 'navbar' %>
 <% end %>
 
-<div id="mobile-version-navbar" class="navbar-container col-sm-12 col-xs-12 p-0">
+<div id="mobile-version-navbar" class="mobile-version navbar-container col-sm-12 col-xs-12 p-0">
   <div class="navbar-body">
-    <div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-md-8 col-sm-8 col-xs-8 text-center p-0 brand">
-      Wunderschön
+    <div class="col-md-2 col-sm-2 col-xs-2">
+      <div id="categories-icon">
+        <% 4.times do %><span></span><% end %>
+      </div>
     </div>
-    <div id="nav-icon" class="col-md-2 col-sm-2 col-xs-2 p-0 pull-right">
-      <% 4.times do %><span></span><% end %>
+    <div class="col-md-8 col-sm-8 col-xs-8 text-center brand">
+      <p class="text-center">Wunderschön</p>
     </div>
-    <br />
+    <div class="col-md-2 col-sm-2 col-xs-2">
+    
+    </div>
     <div id="mobile-slide-menu">
       <div>List Item 1</div>
       <div>List Item 2</div>
@@ -19,12 +23,16 @@
   </div>
 </div>
 
-<div id="desktop-version-navbar" class="navbar-container col-lg-12 col-md-12">
-  <div class="navbar-body">
-    <ul>
-      <li class="brand">Wunderschön</li>
-      <li class="nav-right">Sign In</li>
-      <li class="nav-right">Sign Up</li>
-    </ul>
+<div id="desktop-version-navbar" class="desktop-version navbar-container col-xl-12 col-lg-12 col-md-12 col-sm-12">
+  <div class="custom-container">
+    <div class="navbar-body">
+      <ul>
+        <li class="brand">Wunderschön</li>
+        <li class="nav-right m-r-20">Sign In</li>
+        <li class="nav-right">Sign Up</li>
+      </ul>
+    </div>
   </div>
 </div>
+
+<div class="navbar-offset"></div>

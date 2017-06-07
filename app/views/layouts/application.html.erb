@@ -18,6 +18,8 @@
 
   <body>
     <%= render 'shared/navbar' unless @without_navbar %>
-    <%= yield %>
+    <div class="custom-container">
+      <%= yield %>
+    </div>
   </body>
 </html>

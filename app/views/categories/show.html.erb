@@ -1,1 +1,42 @@
-This is CategoriesController#show Page
+<%= content_for :css do %>
+  <%= stylesheet_link_tag 'category/show' %>
+<% end %>
+
+<div id="category-show-mobile-version" class="mobile-version col-xs-12 col-sm-12">
+  <%= render @category.products %>
+</div>
+
+<div id="billboard" class="desktop-version"></div>
+
+<div id="category-show-desktop-version" class="desktop-version">
+  <div class="row p-r-10">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+      <ul id="product-list">
+        <% Category.all.each do |category| %>
+          <li class="<%= 'active' if category.id == @category.id %>">
+            <%= link_to category.title, category_path(category) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+      <!-- Issue 28: Product UI Design -->
+      <% @category.products.each_slice(2) do |product1, product2| %>
+        <div class="row">
+          <div class="product-block col-lg-6 col-md-6 col-sm-6">
+            <%= image_tag fake_image, class: 'product-img' %>
+            <p><%= product1.title %></p>
+            <p><%= product1.description %></p>
+          </div>
+          <% unless product2.nil? %>
+            <div class="product-block col-lg-6 col-md-6 col-sm-6">
+              <%= image_tag fake_image, class: 'product-img' %>
+              <p><%= product2.title %></p>
+              <p><%= product2.description %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
