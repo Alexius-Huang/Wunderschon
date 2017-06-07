@@ -1,17 +1,11 @@
 // Place all the styles related to the rabbit controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
-
-html, body {
-  background-color: #111;
-  padding: 0;
-  margin: 0;
+body, html {
   overflow: hidden;
 }
 
 h1#title {
-  color: #ddd;
   position: fixed;
   width: 500px;
   top: 15%;
@@ -19,14 +13,12 @@ h1#title {
   margin-left: -250px;
   text-align: center;
   font-size: 300%;
-  font-family: 'Cutive Mono', monospace;
 }
 h1#title span {
   font-size: 50%;
 }
 
 button#entry-btn {
-  font-family: 'Cutive Mono', monospace;
   font-size: 125%;
   color: #777;
   background-color: #111;
@@ -44,7 +36,6 @@ button#entry-btn {
 }
 
 button#entry-btn:hover {
-  color: #ddd;
   border-color: #ddd;
   transition: .5s;
 }

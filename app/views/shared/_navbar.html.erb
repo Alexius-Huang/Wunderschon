@@ -1,0 +1,38 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'navbar' %>
+<% end %>
+
+<div id="mobile-version-navbar" class="mobile-version navbar-container col-sm-12 col-xs-12 p-0">
+  <div class="navbar-body">
+    <div class="col-md-2 col-sm-2 col-xs-2">
+      <div id="categories-icon">
+        <% 4.times do %><span></span><% end %>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8 text-center brand">
+      <p class="text-center">Wunderschön</p>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-2">
+    
+    </div>
+    <div id="mobile-slide-menu">
+      <div>List Item 1</div>
+      <div>List Item 2</div>
+      <div>List Item 3</div>
+    </div>
+  </div>
+</div>
+
+<div id="desktop-version-navbar" class="desktop-version navbar-container col-xl-12 col-lg-12 col-md-12 col-sm-12">
+  <div class="custom-container">
+    <div class="navbar-body">
+      <ul>
+        <li class="brand">Wunderschön</li>
+        <li class="nav-right m-r-20">Sign In</li>
+        <li class="nav-right">Sign Up</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-offset"></div>

@@ -1,5 +1,7 @@
 {
-  "name": "Wunderschön",
+  "name": "Wunderschon",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "rxjs": "^5.4.0"
+  }
 }

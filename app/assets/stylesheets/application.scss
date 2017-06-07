@@ -16,3 +16,52 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+html, body {
+  background-color: #111;
+  max-width: 100vw;
+  width: 100%;
+  color: #ddd;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  overflow-y: scroll;
+}
+a {
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.m-r-20 { margin-right: 20pt; }
+.m-r-50 { margin-right: 50pt; }
+.p-r-10 { padding-right: 10pt; }
+.p-0 { padding: 0; }
+
+@media screen and (max-width: 767px) {
+  .mobile-version {
+    display: block;
+  }
+  .desktop-version {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .mobile-version {
+    display: none;
+  }
+  .desktop-version {
+    display: block;
+  }
+  .custom-container {
+    margin: 0 auto;
+    max-width: 1080px;
+  }
+}

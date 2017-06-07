@@ -3,17 +3,23 @@
   <head>
     <title>Wunderschön</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- PixiJS CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.min.js"></script>
     <!--
       AnimeJS CDN
       <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     -->
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,700' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:css) %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/navbar' unless @without_navbar %>
+    <div class="custom-container">
+      <%= yield %>
+    </div>
   </body>
 </html>
