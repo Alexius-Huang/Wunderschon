@@ -1,0 +1,37 @@
+en:
+  activerecord:
+    attributes:
+      category:
+        description: Description
+        title: Title
+      order:
+        name: Name
+        email: Email
+        address: Address
+        tel: Phone
+        status: Status
+      order_item:
+        order: Order
+        product: Product
+        price: Price
+        quantity: Quantity
+      product:
+        title: Title
+        category: Category
+
+    errors:
+      models:
+        category:
+          attributes:
+        order:
+          attributes:
+        order_item:
+          attributes:
+        product:
+          attributes:
+
+      format: '%{attribute} %{message}'
+      messages:
+        record_invalid: 'Invalid Record: %{errors}'
+        greater_than: should be greater than %{count}
+        greater_than_or_equal_to: should be greater than or equal to %{count}

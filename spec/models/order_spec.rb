@@ -182,7 +182,7 @@ RSpec.describe Order, type: :model do
           order_item = order.order_items.sample
           product = order_item.product
           quantity = order_item.quantity
-          expect { order.delete_item(product, quantity.next) }.to raise_exception(ActiveRecord::RecordInvalid, /Quantity must be greater than 0/)
+          expect { order.delete_item(product, quantity.next) }.to raise_exception(ActiveRecord::RecordInvalid, /數量 需要大於 0/)
         end
       end
     end

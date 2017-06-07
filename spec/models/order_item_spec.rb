@@ -151,7 +151,8 @@ RSpec.describe OrderItem, type: :model do
         it_should_behave_like 'pass in negative or zero value', :decrease!
         it_should_behave_like 'update quantity when record deleted', :decrease!
         it 'should not pass in quantity larger than the OrderItem quantity' do
-          expect { order_item.decrease!(quantity.next) }.to raise_exception(ActiveRecord::RecordInvalid, /Quantity must be greater than 0/)
+          expect { order_item.decrease!(quantity.next) }.to raise_exception(ActiveRecord::RecordInvalid)
+          expect(order_item.errors).to include(:quantity)
         end
       end
     end
