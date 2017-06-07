@@ -1,0 +1,34 @@
+en:
+  activerecords:
+    attributes:
+      category:
+        description: Description
+        title: Title
+      order:
+        name: Name
+        email: Email
+        address: Address
+        tel: Phone
+        status: Status
+      order_item:
+        order: Order
+        product: Product
+        price: Price
+        quantity: Quantity
+      product:
+        title: Title
+        category: Category
+
+    errors:
+      models:
+        category:
+          attributes:
+
+        order:
+          attributes:
+
+        order_item:
+          attributes:
+
+        product:
+          attributes:

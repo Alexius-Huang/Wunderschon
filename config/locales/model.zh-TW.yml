@@ -1,0 +1,34 @@
+zh-TW:
+  activerecords:
+    attributes:
+      category:
+        description: 敘述
+        title: 主題
+      order:
+        name: 姓名
+        email: 電子郵件
+        address: 地址
+        tel: 聯絡電話
+        status: 狀態
+      order_item:
+        order: 訂單
+        product: 商品名稱 
+        price: 單價
+        quantity: 數量
+      product:
+        title: 名稱
+        category: 分類
+
+    errors:
+      models:
+        category:
+          attributes:
+
+        order:
+          attributes:
+
+        order_item:
+          attributes:
+
+        product:
+          attributes:
