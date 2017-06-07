@@ -1,5 +1,5 @@
 zh-TW:
-  activerecords:
+  activerecord:
     attributes:
       category:
         description: 敘述
@@ -23,12 +23,15 @@ zh-TW:
       models:
         category:
           attributes:
-
         order:
           attributes:
-
         order_item:
           attributes:
-
         product:
           attributes:
+
+      format: '%{attribute} %{message}'
+      messages:
+        record_invalid: '記錄失敗: %{errors}'
+        greater_than: 需要大於 %{count}
+        greater_than_or_equal_to: 需要大於或等於 %{count}

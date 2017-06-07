@@ -1,5 +1,5 @@
 en:
-  activerecords:
+  activerecord:
     attributes:
       category:
         description: Description
@@ -23,12 +23,15 @@ en:
       models:
         category:
           attributes:
-
         order:
           attributes:
-
         order_item:
           attributes:
-
         product:
           attributes:
+
+      format: '%{attribute} %{message}'
+      messages:
+        record_invalid: 'Invalid Record: %{errors}'
+        greater_than: should be greater than %{count}
+        greater_than_or_equal_to: should be greater than or equal to %{count}
