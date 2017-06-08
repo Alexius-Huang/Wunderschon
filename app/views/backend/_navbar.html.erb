@@ -1,0 +1,15 @@
+<%= content_for :css do %>
+  <%= stylesheet_link_tag 'backend/navbar' %>
+<% end %>
+<ul id="aside-menu">
+  <li id="title"><%= t('app_name') %></li>
+  <% Settings.dashboard.aside.each do |list_item| %>
+    <li><%= t('dashboard.aside.' + list_item) %></li>
+  <% end %>
+</ul>
+
+<div id="top-navbar" class="row">
+  <div id="breadcrumb" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <%= breadcrumb %>
+  </div>
+</div>

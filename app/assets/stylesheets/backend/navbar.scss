@@ -1,0 +1,31 @@
+ul#aside-menu {
+  background-color: #333;
+  color: #ddd;
+  position: fixed;
+  height: 100vh;
+  width: 200pt;
+
+  li {
+    font-size: 11pt;
+    height: 35pt;
+    line-height: 35pt;
+    padding-left: 15pt;
+  }
+  li:hover:not(:first-child) {
+    background-color: #555;
+    transition: .25s;
+  }
+  li:first-child {
+    font-size: 18pt;
+    height: 50pt;
+    line-height: 50pt;
+  }
+}
+div#top-navbar {
+  margin-left: 200pt;
+  height: 50pt;
+  line-height: 50pt;
+  width: calc(100vw - 200pt);
+  background-color: #555;
+  color: #ddd;
+}

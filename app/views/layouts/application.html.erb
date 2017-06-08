@@ -14,8 +14,12 @@
 
   <body>
     <%= render 'shared/navbar' unless @without_navbar %>
-    <div class="custom-container">
-      <%= yield %>
-    </div>
+    <% if @backend %>
+      <%= render 'backend/backend' %>
+    <% else %>
+      <div class="custom-container">
+        <%= yield %>
+      </div>
+    <% end %>
   </body>
 </html>

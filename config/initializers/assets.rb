@@ -14,10 +14,13 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 css_files = %w(
   navbar.scss
   category/show.scss
+  backend.scss
+  backend/navbar.scss
 )
 js_files = %w(
   rabbit.js
   categories.js
+  backend.js
 )
 Rails.application.config.assets.precompile += css_files
 Rails.application.config.assets.precompile += js_files

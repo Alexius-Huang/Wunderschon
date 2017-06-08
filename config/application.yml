@@ -1,5 +1,12 @@
 # config/application.yml
 defaults: &defaults
+  dashboard:
+    aside:
+      - categories
+      - products
+      - orders
+      - users
+      - settings
   product:
     statuses:
       available: available

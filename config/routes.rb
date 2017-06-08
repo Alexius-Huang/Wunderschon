@@ -12,10 +12,11 @@ Rails.application.routes.draw do
 
   resources :orders, path_names: { new: 'checkout' }
 
-  namespace :backend do
+  namespace :backend, path: :dashboard do
     resources :categories, only: [:new, :edit, :update, :destroy]
     resources :orders,     only: [:index, :show, :edit, :update, :destroy]
     resources :products,   only: [:new, :edit, :update, :destroy]
     resources :users
+    get 'main'
   end
 end

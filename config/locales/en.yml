@@ -1,3 +1,13 @@
-en:
+zh-TW:
   app_name: Wunderschön
   author_name: Maxwell Alexius
+  dashboard:
+    aside:
+      categories: Categories
+      products: Products
+      orders: Orders
+      users: Users
+      settings: Settings
+    breadcrumb:
+      dashboard: Dashboard
+      main: Main Menu
