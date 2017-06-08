@@ -15,4 +15,9 @@ css_files = %w(
   navbar.scss
   category/show.scss
 )
+js_files = %w(
+  rabbit.js
+  categories.js
+)
 Rails.application.config.assets.precompile += css_files
+Rails.application.config.assets.precompile += js_files

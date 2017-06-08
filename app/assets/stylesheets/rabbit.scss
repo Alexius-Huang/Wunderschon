@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body, html {
   overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 h1#title {

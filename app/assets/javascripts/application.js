@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 
 $(document).ready(function(){
 	var navbarItemCount = $('#mobile-slide-menu').children().length;
