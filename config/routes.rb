@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 
   namespace :backend, path: :dashboard do
     resources :categories
-    resources :orders,     only: [:index, :show, :edit, :update, :destroy]
-    resources :products,   only: [:new, :edit, :update, :destroy]
+    resources :orders, only: [:index, :show, :edit, :update, :destroy]
+    resources :products, path_names: { new: 'new/(:category_id)' }
     resources :users
     get 'main'
   end

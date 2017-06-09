@@ -1,7 +1,17 @@
 zh-TW:
   app_name: Wunderschön
   author_name: Maxwell Alexius
-  back_link: Back
+  path:
+    back_link: Back
+    backend:
+      main: Main
+      categories:
+        index: View Categories
+        new: New Category
+      products:
+        index: View Products
+        new: New Product
+
   dashboard:
     aside:
       categories: Categories

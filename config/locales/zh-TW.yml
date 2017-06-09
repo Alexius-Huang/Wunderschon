@@ -9,7 +9,7 @@ zh-TW:
         index: 檢視所有 商品類別
         new: 新增 商品類別
       products:
-        index: 商品
+        index: 檢視所有 商品
         new: 新增 商品
 
   dashboard:

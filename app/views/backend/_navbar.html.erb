@@ -3,9 +3,11 @@
 <% end %>
 <ul id="aside-menu">
   <li id="title"><%= t('app_name') %></li>
-  <% Settings.dashboard.aside.each do |list_item| %>
-    <li><%= t('dashboard.aside.' + list_item) %></li>
-  <% end %>
+  <li><%= link_to t('dashboard.aside.categories'), backend_categories_path %></li>
+  <li><%= link_to t('dashboard.aside.products'),   backend_products_path %></li>
+  <li><%= link_to t('dashboard.aside.orders'),     backend_orders_path %></li>
+  <li><%= link_to t('dashboard.aside.users'),      backend_users_path %></li>
+  <li><%= link_to t('dashboard.aside.settings'),   '#' %></li>
 </ul>
 
 <div id="top-navbar" class="row">
