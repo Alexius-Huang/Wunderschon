@@ -1,6 +1,17 @@
 zh-TW:
   app_name: Wunderschön
   author_name: Maxwell Alexius
+  path:
+    back_link: 返回
+    backend:
+      main: 主目錄
+      categories:
+        index: 檢視所有 商品類別
+        new: 新增 商品類別
+      products:
+        index: 商品
+        new: 新增 商品
+
   dashboard:
     aside:
       categories: 商品類別
@@ -11,3 +22,10 @@ zh-TW:
     breadcrumb:
       dashboard: 後臺
       main: 主目錄
+      categories: 商品類別
+      products: 商品
+      orders: 訂單
+      users: 使用者管理
+      settings: 設定
+      new: 新增 %{target}
+      edit: 編輯 %{target}
