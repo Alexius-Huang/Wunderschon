@@ -1,4 +1,11 @@
+<%= content_for :css do %>
+  <%= stylesheet_link_tag 'backend' %>
+<% end %>
+<%= content_for :js do %>
+  <%= javascript_include_tag 'backend' %>
+<% end %>
+
 <%= render 'backend/navbar' %>
-<div class="custom-container">
+<div class="backend-container">
   <%= yield %>
 </div>

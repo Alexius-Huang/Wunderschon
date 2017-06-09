@@ -1,6 +1,7 @@
 zh-TW:
   app_name: Wunderschön
   author_name: Maxwell Alexius
+  back_link: Back
   dashboard:
     aside:
       categories: Categories
@@ -11,3 +12,10 @@ zh-TW:
     breadcrumb:
       dashboard: Dashboard
       main: Main Menu
+      categories: Categories
+      products: Products
+      orders: Orders
+      users: Users
+      settings: Settings
+      new: New %{target}
+      edit: Edit %{target}

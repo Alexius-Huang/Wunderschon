@@ -1,0 +1,26 @@
+<div class="backend-panel backend-primary">
+  <%= link_to t('path.back_link'), :back, class: 'btn btn-default' %>
+  <%= link_to t('path.backend.categories.new'), new_backend_category_path, class: 'btn btn-default pull-right' %>
+</div>
+<div class="backend-panel">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.id %></td>
+          <td><%= category.title %></td>
+          <td><%= category.description %></td>
+          <td>Actions</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

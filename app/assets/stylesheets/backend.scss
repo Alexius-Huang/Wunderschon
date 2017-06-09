@@ -1,4 +1,24 @@
-.custom-container {
+.backend-container {
   max-width: 100vw;
   margin-left: 200pt;
+  padding: 30pt;
+}
+.backend-panel {
+  padding: 12pt 20pt;
+  margin-bottom: 20pt;
+  background-color: #333;
+  border-bottom: 3pt solid #555;
+  transition: .25s;
+}
+.backend-panel:hover {
+  border-color: #555;
+  transition: .25s;
+}
+.backend-primary {
+  border-color: rgba(2,117,216, 0.7);
+  transition: .25s;
+}
+.backend-primary:hover {
+  border-color: rgb(2,117,216);
+  transition: .25s;
 }

@@ -1,0 +1,11 @@
+<div class="backend-panel backend-primary">
+  <%= link_to t('path.back_link'), :back, class: 'btn btn-default' %>
+  <%= link_to t('path.backend.categories.index'), backend_categories_path, class: 'btn btn-default pull-right' %>
+</div>
+<div class="backend-panel">
+  <%= simple_form_for @category, url: backend_categories_path do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.button :submit, t('path.backend.categories.new') %>
+  <% end %>
+</div>

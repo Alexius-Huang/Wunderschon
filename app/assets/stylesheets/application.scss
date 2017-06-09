@@ -39,7 +39,31 @@ ul {
   padding: 0;
   margin: 0;
 }
-
+input.form-control,
+textarea.form-control {
+  background-color: #333;
+  color: #ddd;
+  border-radius: 3pt;
+  border: 1pt dashed #888;
+  transition: .25s;
+}
+input.form-control:focus,
+textarea.form-control:focus {
+  background-color: #555;
+  transition: .25s;
+}
+.btn-default {
+  background-color: transparent;
+  color: #aaa;
+  border: 1pt solid #555;
+  transition: .25s;
+}
+.btn-default:hover {
+  color: #111;
+  background-color: #ddd;
+  border-color: #ddd;
+  transition: .25s;
+}
 .m-r-20 { margin-right: 20pt; }
 .m-r-50 { margin-right: 50pt; }
 .p-r-10 { padding-right: 10pt; }
