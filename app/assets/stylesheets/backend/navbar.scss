@@ -11,6 +11,12 @@ ul#aside-menu {
     line-height: 35pt;
     padding-left: 15pt;
   }
+  li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #ddd;
+  }
   li:hover:not(:first-child) {
     background-color: #555;
     transition: .25s;

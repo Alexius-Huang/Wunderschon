@@ -7,9 +7,11 @@ module BackendHelper
       if ['new', 'edit'].include? path_segment
         previous_path_segment = path_arr[index - 1]
         t(i18n_prefix + path_segment, target: t(i18n_prefix + previous_path_segment))
+      elsif not path_segment.to_i.zero?
+        ''
       else
         t(i18n_prefix + path_segment)
       end
-    end.join(' >> ')
+    end.reject(&:empty?).join(' >> ')
   end
 end

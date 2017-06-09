@@ -1,5 +1,10 @@
 zh-TW:
   activerecord:
+    models:
+      category: 商品類別
+      order: 訂單
+      order_item: 訂單細則
+      product: 商品
     attributes:
       category:
         description: 敘述
@@ -17,7 +22,9 @@ zh-TW:
         quantity: 數量
       product:
         title: 名稱
-        category: 分類
+        description: 商品描述
+        price: 價格
+        category: 商品類別
 
     errors:
       models:
@@ -33,6 +40,7 @@ zh-TW:
       format: '%{attribute} %{message}'
       messages:
         blank: 此欄位必填，不能留空！
+        required: 此欄位必填，不能留空！
         record_invalid: '記錄失敗: %{errors}'
         greater_than: 需要大於 %{count}
         greater_than_or_equal_to: 需要大於或等於 %{count}

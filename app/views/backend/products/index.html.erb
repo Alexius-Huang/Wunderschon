@@ -1,0 +1,30 @@
+<div class="backend-panel backend-primary">
+  <%= link_to t('path.back_link'), :back, class: 'btn btn-default' %>
+  <%= link_to t('path.backend.products.new'), new_backend_product_path, class: 'btn btn-default pull-right' %>
+</div>
+<div class="backend-panel">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= product.title %></td>
+          <td><%= product.category.title %></td>
+          <td><%= product.description.truncate(30) %></td>
+          <td><%= product.price %></td>
+          <td>Actions</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -17,8 +17,8 @@
         <tr>
           <td><%= category.id %></td>
           <td><%= category.title %></td>
-          <td><%= category.description %></td>
-          <td>Actions</td>
+          <td><%= category.description.truncate(30) %></td>
+          <td><%= link_to t('path.backend.products.new'), new_backend_product_path(category), class: 'btn btn-xs btn-default' %></td>
         </tr>
       <% end %>
     </tbody>
