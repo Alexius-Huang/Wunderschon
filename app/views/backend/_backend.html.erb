@@ -6,6 +6,16 @@
 <% end %>
 
 <%= render 'backend/navbar' %>
+
 <div class="backend-container">
+  <% Settings.flash_types.each_pair do |type, klass| %>
+    <% if flash[type] %>
+      <input type="checkbox" id="<%= type %>-msg">
+      <div class="backend-panel backend-notice bg-<%= klass %>">
+        <%= flash[type] %>
+        <label for="<%= type %>-msg"><span></span><span></span></label>
+      </div>
+    <% end %>
+  <% end %>
   <%= yield %>
 </div>
