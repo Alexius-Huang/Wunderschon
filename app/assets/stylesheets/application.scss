@@ -57,6 +57,12 @@ select.form-control:focus {
   background-color: #555;
   transition: .25s;
 }
+input.disabled,
+textarea.disabled,
+select.disabled {
+  color: #888;
+  background-color: #222 !important;
+}
 .btn-default {
   background-color: transparent;
   color: #aaa;

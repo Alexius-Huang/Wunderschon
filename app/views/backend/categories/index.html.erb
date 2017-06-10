@@ -1,5 +1,4 @@
 <%= content_for :js do %>
-  <%= javascript_include_tag 'backend' %>
   <%= javascript_include_tag 'backend/categories' %>
 <% end %>
 <div class="backend-panel border-primary">
@@ -41,4 +40,4 @@
   </div>
 </div>
 
-<%= render 'delete_modal', model: :category %>
+<%= render 'backend/shared/delete_modal', model: :category %>

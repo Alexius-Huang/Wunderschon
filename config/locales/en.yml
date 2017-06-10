@@ -14,7 +14,9 @@ zh-TW:
       products:
         index: View Products
         new: New Product
-        edit: Edit Product
+        show: Inspect
+        edit: Edit
+        destroy: Delete
 
   modal:
     ask:

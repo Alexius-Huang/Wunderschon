@@ -1,0 +1,19 @@
+
+<div class="backend-panel">
+  <div class="backend-panel-head bg-success">
+    <%= t("dashboard.title.products.#{action}") %>
+  </div>
+  <div class="backend-panel-body">
+    <%= simple_form_for product, url: url do |f| %>
+      <%= f.input :title %>
+      <% if params.key?(:category_id) %>
+        <%= f.association :category, collection: Category.all.order(:title), selected: params[:category_id], prompt: t('simple_form.collection.prompt', target: t('activerecord.models.category')), disabled: (action == :edit) %>
+      <% else %>
+        <%= f.association :category, collection: Category.all.order(:title), prompt: t('simple_form.collection.prompt', target: t('activerecord.models.category')), disabled: (action == :edit) %>
+      <% end %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.button :submit, t("path.backend.products.#{action}") %>
+    <% end %>
+  </div>
+</div>
