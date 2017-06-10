@@ -39,6 +39,9 @@ ul {
   padding: 0;
   margin: 0;
 }
+td {
+  font-weight: 100;
+}
 input.form-control,
 textarea.form-control,
 select.form-control {
@@ -97,3 +100,19 @@ select.form-control:focus {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
 }
+.bg-primary {
+  background-color: rgba(2,117,216, 1);
+  transition: .25s;
+}
+// .bg-primary:hover {
+//   background-color: rgb(2,117,216);
+//   transition: .25s;
+// }
+.border-primary {
+  border-color: rgba(2,117,216, 1);
+  transition: .25s;
+}
+// .border-primary:hover {
+//   border-color: rgb(2,117,216);
+//   transition: .25s;
+// }

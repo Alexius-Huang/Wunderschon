@@ -4,4 +4,8 @@ class Category < ApplicationRecord
   has_many :products, dependent: :destroy
 
   validates :title, :description, presence: true
+
+  def available_products
+    products.where(category_id: self, status: 'available')
+  end
 end

@@ -8,9 +8,12 @@ zh-TW:
       categories:
         index: 檢視所有 商品類別
         new: 新增 商品類別
+        show: 檢視 商品類別
+        edit: 編輯
       products:
         index: 檢視所有 商品
         new: 新增 商品
+        edit: 編輯
 
   dashboard:
     aside:
@@ -29,3 +32,14 @@ zh-TW:
       settings: 設定
       new: 新增 %{target}
       edit: 編輯 %{target}
+    title:
+      categories:
+        index: 商品類別總覽
+        new: 新增商品類別
+        show: 商品類別細節
+        products: 類別之商品
+      products:
+        index: 商品總覽
+        new: 新增商品
+        show: 商品細節
+        category: 商品所屬類別

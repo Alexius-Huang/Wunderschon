@@ -25,6 +25,10 @@ zh-TW:
         description: 商品描述
         price: 價格
         category: 商品類別
+        status: 狀態
+        statuses:
+          available: 開放
+          unavailable: 不開放
 
     errors:
       models:
