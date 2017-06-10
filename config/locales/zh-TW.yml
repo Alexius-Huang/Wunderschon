@@ -57,3 +57,33 @@ zh-TW:
         show: 商品細節
         edit: 編輯商品
         category: 商品所屬類別
+
+  flash_message:
+    title:
+      success: 成功
+      notice: 注意
+      warning: 警告
+      error: 錯誤
+    success:
+      backend:
+        categories:
+          create: 成功創建出新的商品類別「 %{title} 」！
+          update: 成功修改商品類別「 %{title} 」！
+        products:
+          create: 成功創建出新的商品「 %{title} 」！
+          update: 成功修改商品「 %{title} 」之內容！
+    notice:
+    warning:
+      backend:
+        categories:
+          destroy: 商品類別「 %{title} 」已刪除，其類別下之商品也一併被移除！
+        products:
+          destroy: 商品「 %{title} 」已刪除！
+    error:
+      backend:
+        categories:
+          create: 無法建立出商品類別，請檢查是否有錯誤！
+          update: 商品類別「 %{title} 」修改失敗！
+        products:
+          create: 無法建立出商品，請檢查是否有錯誤！
+          update: 商品「 %{title} 」修改失敗！

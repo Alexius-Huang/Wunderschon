@@ -9,6 +9,64 @@
   border-bottom: 3pt solid #555;
   transition: .25s;
 }
+.backend-notice {
+  position: relative;
+  border-bottom: none;
+  padding: 20pt;
+}
+.backend-notice > label {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+input#success-msg, input#notice-msg, input#warning-msg, input#error-msg {
+  position: absolute;
+  top: -1000pt;
+  left: -1000pt;
+}
+label[for="success-msg"],
+label[for="notice-msg"],
+label[for="warning-msg"],
+label[for="error-msg"] {
+  position: absolute;
+  display: inline-block;
+  width: 20pt;
+  height: 20pt;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  right: 0pt;
+  span {
+    display: block;
+    position: absolute;
+    top: 8.5pt;
+    left: 2.5pt;
+    width: 15pt;
+    height: 2pt;
+    background-color: #ddd;
+  }
+  span:first-child {
+    transform: rotate(45deg);
+  }
+  span:last-child {
+    transform: rotate(-45deg);
+  }
+}
+input#success-msg:checked ~ .backend-notice.bg-success,
+input#notice-msg:checked  ~ .backend-notice.bg-primary,
+input#warning-msg:checked ~ .backend-notice.bg-warning,
+input#error-msg:checked   ~ .backend-notice.bg-danger {
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  opacity: 0;
+  transition: .25s;
+  span {
+    width: 0;
+    transition: .25s;
+  }
+}
 .backend-panel-head {
   padding: 0 20pt;
   background-color: #555;
@@ -118,20 +176,4 @@
 }
 .backend-modal-close-btn:hover {
   animation: RotateClockwise .25s;
-}
-@keyframes RotateClockwise {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-180deg);
-  }
-}
-@keyframes RotateCounterclockwise {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(180deg);
-  }
 }

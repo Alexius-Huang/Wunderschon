@@ -1,5 +1,10 @@
 # config/application.yml
 defaults: &defaults
+  flash_types:
+    success: success
+    notice: primary
+    warning: warning
+    error: danger
   dashboard:
     aside:
       - categories

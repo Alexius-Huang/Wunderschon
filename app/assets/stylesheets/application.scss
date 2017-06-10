@@ -116,3 +116,20 @@ select.disabled {
 .border-success { border-color: rgb(92, 184, 92); }
 .border-warning { border-color: rgb(240, 173, 78); }
 .border-danger  { border-color: rgb(217, 83, 79); }
+
+@keyframes RotateClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+@keyframes RotateCounterclockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}

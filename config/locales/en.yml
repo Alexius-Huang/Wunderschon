@@ -57,3 +57,33 @@ zh-TW:
         show: Inspect Product
         edit: Edit Product
         category: Product's Category
+
+    flash_message:
+    title:
+      success: Success
+      notice: Notice
+      warning: Warning
+      error: Error
+    success:
+      backend:
+        categories:
+          create: Successfully created a new product category "%{title}"!
+          update: Successfully updated a product category %{title}"!
+        products:
+          create: Successfully created a new product "%{title}"!
+          update: Successfully updated a product "%{title}"!
+    notice:
+    warning:
+      backend:
+        categories:
+          destroy: Product category "%{title}" has been removed!
+        products:
+          destroy: Product "%{title}" has been removed!
+    error:
+      backend:
+        categories:
+          create: Not able to create a new product category! Please review the errors below!
+          update: Product category "%{title}" failed to update!
+        products:
+          create: Not able to create a new product! Please review the errors below!
+          update: Product "%{title}" failed to update!

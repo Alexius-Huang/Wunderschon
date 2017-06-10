@@ -12,8 +12,10 @@ class Backend::ProductsController < BackendController
   def create
     @product = Product.new(resource_params)
     if @product.save
+      action_success title: @product.title
       redirect_to backend_products_path
     else
+      action_failed
       render :new
     end
   end
@@ -24,14 +26,17 @@ class Backend::ProductsController < BackendController
 
   def update
     if @product.update(resource_params)
+      action_success title: @product.title
       redirect_to backend_product_path(@product)
     else
+      action_failed title: @product.title
       render :edit
     end
   end
 
   def destroy
     @product.destroy
+    flash[:warning] = i18n(:flash, type: :warning, title: @product.title)
     redirect_to backend_products_path
   end
 
