@@ -1,0 +1,24 @@
+<div class="backend-panel border-primary">
+  <div class="backend-panel-body">
+    <%= link_to t('path.back_link'), :back, class: 'btn btn-default' %>
+    <%= link_to t('path.backend.products.index'), backend_products_path, class: 'btn btn-default pull-right' %>
+    <%= link_to t('path.backend.products.new'), new_backend_product_path, class: 'btn btn-default pull-right' %>
+  </div>
+</div>
+<div class="backend-panel">
+  <div class="backend-panel-head bg-primary">
+    <%= t('dashboard.title.products.show') %>
+    <%= link_to t('path.backend.products.edit'), edit_backend_product_path(@product) %>
+  </div>
+  <div class="backend-panel-body">
+    <div class="backend-panel-info">
+      <h3><%= @product.title %></h3>
+      <h4><%= i18n :column, model: :product, name: :price %> - $<%= @product.price %></h4>
+      <p><%= @product.description %></p>
+    </div>
+    <div class="backend-panel-info">
+      <h3><%= i18n :column, model: :product, name: :category %> - <%= @product.category.title %></h3>
+      <p><%= @product.category.description %></p>
+    </div>
+  </div>
+</div>

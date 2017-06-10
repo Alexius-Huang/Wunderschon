@@ -17,7 +17,7 @@
       <thead>
         <tr>
           <th>ID</th>
-          <% [:title, :category, :description, :price, :status ].each do |column| %>
+          <% %i(title category price status).each do |column| %>
             <th><%= i18n :column, model: :product, name: column %></th>
           <% end %>
           <th>Actions</th>
@@ -29,13 +29,18 @@
             <td><%= product.id %></td>
             <td><%= product.title %></td>
             <td><%= product.category.title %></td>
-            <td><%= product.description.truncate(30) %></td>
             <td><%= product.price %></td>
             <td><%= i18n :enum, model: :product, status: product.status %></td>
-            <td>Actions</td>
+            <td>
+              <%= link_to t('path.backend.products.show'), backend_product_path(product), class: 'btn btn-xs btn-default' %>
+              <%= link_to t('path.backend.products.edit'), edit_backend_product_path(product), class: 'btn btn-xs btn-default' %>
+              <%= link_to t('path.backend.products.destroy'), '#', class: 'btn btn-xs btn-default destroy-product-btn', data: { title: product.title, url: backend_product_path(product), turbolinks: false } %>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
+
+<%= render 'backend/shared/delete_modal', model: :product %>

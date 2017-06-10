@@ -9,22 +9,31 @@ ul#aside-menu {
     font-size: 11pt;
     height: 35pt;
     line-height: 35pt;
-    padding-left: 15pt;
   }
   li > a {
     display: block;
+    padding-left: 15pt;
     width: 100%;
     height: 100%;
     color: #ddd;
   }
-  li:hover:not(:first-child) {
+  li:hover:not(#title) {
     background-color: #555;
     transition: .25s;
   }
-  li:first-child {
+  li#title {
     font-size: 18pt;
     height: 50pt;
     line-height: 50pt;
+    border-bottom: 2pt solid rgba(2,117,216, 1);
+    transition: .25s;
+  }
+  li#title:hover {
+    background-color: rgba(2,117,216, 1);
+    transition: .25s;
+  }
+  li > a.active {
+    background-color: #555;
   }
 }
 div#top-navbar {

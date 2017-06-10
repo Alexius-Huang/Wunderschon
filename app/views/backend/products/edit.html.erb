@@ -4,4 +4,4 @@
     <%= link_to t('path.backend.products.index'), backend_products_path, class: 'btn btn-default pull-right' %>
   </div>
 </div>
-<%= render 'form', product: @product, url: backend_products_path, params: params, action: :new %>
+<%= render 'form', product: @product, url: backend_product_path(@product), params: {}, action: :edit %>

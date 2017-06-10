@@ -8,7 +8,7 @@
       <%= sanitize t('modal.content.delete'), tag: %w(span) %>
     </div>
     <div class="backend-modal-footer">
-      <%= link_to t('modal.answer.yes'), '#', method: :delete, class: 'btn btn-sm btn-default', id: 'modal-yes' %>
+      <%= link_to t('modal.answer.yes'), '#', method: :delete, class: 'btn btn-sm btn-default destroy-product-btn', id: 'modal-yes' %>
       <%= link_to t('modal.answer.no'), '#', class: 'btn btn-sm btn-default', id: 'modal-no', data: { turbolinks: false } %>
     </div>
   </div>
