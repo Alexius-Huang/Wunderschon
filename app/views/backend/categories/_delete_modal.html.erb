@@ -1,0 +1,15 @@
+<div id="destroy-modal" class="backend-modal-container">
+  <div class="backend-modal">
+    <button class="backend-modal-close-btn"><span></span><span></span></button>
+    <div class="backend-modal-title bg-danger">
+      <%= t('modal.ask.delete', target: t("activerecord.models.#{model}")) %>
+    </div>
+    <div id="destroy-modal-content" class="backend-modal-body">
+      <%= sanitize t('modal.content.delete'), tag: %w(span) %>
+    </div>
+    <div class="backend-modal-footer">
+      <%= link_to t('modal.answer.yes'), '#', method: :delete, class: 'btn btn-sm btn-default', id: 'modal-yes' %>
+      <%= link_to t('modal.answer.no'), '#', class: 'btn btn-sm btn-default', id: 'modal-no', data: { turbolinks: false } %>
+    </div>
+  </div>
+</div>

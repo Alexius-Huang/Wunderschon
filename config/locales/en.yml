@@ -8,9 +8,22 @@ zh-TW:
       categories:
         index: View Categories
         new: New Category
+        show: Inspect
+        edit: Edit
+        destroy: Delete
       products:
         index: View Products
         new: New Product
+        edit: Edit Product
+
+  modal:
+    ask:
+      delete: Are you sure to delete %{target}?
+    content:
+      delete: Caution! You are going to delete "<span></span>"!
+    answer:
+      'yes': "Yes"
+      'no': "No"
 
   dashboard:
     aside:
@@ -29,3 +42,16 @@ zh-TW:
       settings: Settings
       new: New %{target}
       edit: Edit %{target}
+    title:
+      categories:
+        index: All Categories
+        new: Create New Category
+        show: Inspect Category
+        edit: Edit Category
+        products: Products of the Category
+      products:
+        index: All Products
+        new: Create New Product
+        show: Inspect Product
+        edit: Edit Product
+        category: Product's Category

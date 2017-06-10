@@ -4,14 +4,18 @@ module BackendHelper
     path_arr = fullpath.split '/'
     path_arr.shift if path_arr.first.empty?
     path_arr.map.with_index do |path_segment, index|
-      if ['new', 'edit'].include? path_segment
+      path_segment = path_segment.match(/[a-z]+/).to_s
+      case path_segment
+      when 'new'
         previous_path_segment = path_arr[index - 1]
         t(i18n_prefix + path_segment, target: t(i18n_prefix + previous_path_segment))
-      elsif not path_segment.to_i.zero?
-        ''
+      when 'edit'
+        previous_path_segment = path_arr[index - 2]
+        t(i18n_prefix + path_segment, target: t(i18n_prefix + previous_path_segment))
+      when '' then nil
       else
         t(i18n_prefix + path_segment)
       end
-    end.reject(&:empty?).join(' >> ')
+    end.reject(&:nil?).join(' >> ')
   end
 end

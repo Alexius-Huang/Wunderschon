@@ -25,6 +25,10 @@ en:
         description: Description
         price: Price
         category: Category
+        status: Status
+        statuses:
+          available: Available
+          unavailable: Unavailable
 
     errors:
       models:

@@ -8,9 +8,22 @@ zh-TW:
       categories:
         index: 檢視所有 商品類別
         new: 新增 商品類別
+        show: 檢視
+        edit: 編輯
+        destroy: 刪除
       products:
         index: 檢視所有 商品
         new: 新增 商品
+        edit: 編輯
+  
+  modal:
+    ask:
+      delete: 確定要刪除%{target}嗎？
+    content:
+      delete: 注意！即將要刪除「 <span></span> 」！
+    answer:
+      'yes': 確定
+      'no': 取消
 
   dashboard:
     aside:
@@ -29,3 +42,16 @@ zh-TW:
       settings: 設定
       new: 新增 %{target}
       edit: 編輯 %{target}
+    title:
+      categories:
+        index: 商品類別總覽
+        new: 新增商品類別
+        show: 商品類別細節
+        edit: 編輯商品類別
+        products: 類別之商品
+      products:
+        index: 商品總覽
+        new: 新增商品
+        show: 商品細節
+        edit: 編輯商品
+        category: 商品所屬類別

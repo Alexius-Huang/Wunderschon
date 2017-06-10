@@ -39,6 +39,9 @@ ul {
   padding: 0;
   margin: 0;
 }
+td {
+  font-weight: 100;
+}
 input.form-control,
 textarea.form-control,
 select.form-control {
@@ -97,3 +100,13 @@ select.form-control:focus {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
 }
+.bg-primary, .bg-success, .bg-warning, .bg-danger,
+.border-primary, .border-success, .border-warning, .border-danger { transition: .25s; }
+.bg-primary { background-color: rgba(2,117,216, 1); }
+.bg-success { background-color: rgb(92, 184, 92); }
+.bg-warning { background-color: rgb(240, 173, 78); }
+.bg-danger  { background-color: rgb(217, 83, 79); }
+.border-primary { border-color: rgba(2,117,216, 1); }
+.border-success { border-color: rgb(92, 184, 92); }
+.border-warning { border-color: rgb(240, 173, 78); }
+.border-danger  { border-color: rgb(217, 83, 79); }

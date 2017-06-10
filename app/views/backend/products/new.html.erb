@@ -1,17 +1,24 @@
-<div class="backend-panel backend-primary">
-  <%= link_to t('path.back_link'), :back, class: 'btn btn-default' %>
-  <%= link_to t('path.backend.products.index'), backend_products_path, class: 'btn btn-default pull-right' %>
+<div class="backend-panel border-primary">
+  <div class="backend-panel-body border-primary">
+    <%= link_to t('path.back_link'), :back, class: 'btn btn-default' %>
+    <%= link_to t('path.backend.products.index'), backend_products_path, class: 'btn btn-default pull-right' %>
+  </div>
 </div>
 <div class="backend-panel">
-  <%= simple_form_for @product, url: backend_products_path do |f| %>
-    <%= f.input :title %>
-    <% if params.key?(:category_id) %>
-      <%= f.association :category, collection: Category.all.order(:title), selected: params[:category_id], prompt: t('simple_form.collection.prompt', target: t('activerecord.models.category')) %>
-    <% else %>
-      <%= f.association :category, collection: Category.all.order(:title), prompt: t('simple_form.collection.prompt', target: t('activerecord.models.category')) %>
+  <div class="backend-panel-head bg-primary">
+    <%= t('dashboard.title.products.new') %>
+  </div>
+  <div class="backend-panel-body">
+    <%= simple_form_for @product, url: backend_products_path do |f| %>
+      <%= f.input :title %>
+      <% if params.key?(:category_id) %>
+        <%= f.association :category, collection: Category.all.order(:title), selected: params[:category_id], prompt: t('simple_form.collection.prompt', target: t('activerecord.models.category')) %>
+      <% else %>
+        <%= f.association :category, collection: Category.all.order(:title), prompt: t('simple_form.collection.prompt', target: t('activerecord.models.category')) %>
+      <% end %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.button :submit, t('path.backend.products.new') %>
     <% end %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.button :submit, t('path.backend.products.new') %>
-  <% end %>
+  </div>
 </div>

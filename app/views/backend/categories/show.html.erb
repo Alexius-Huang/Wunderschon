@@ -1,23 +1,32 @@
-<%= content_for :js do %>
-  <%= javascript_include_tag 'backend' %>
-  <%= javascript_include_tag 'backend/products' %>
-<% end %>
 <div class="backend-panel border-primary">
   <div class="backend-panel-body">
     <%= link_to t('path.back_link'), :back, class: 'btn btn-default' %>
-    <%= link_to t('path.backend.products.new'), new_backend_product_path, class: 'btn btn-default pull-right' %>
+    <%= link_to t('path.backend.categories.index'), backend_categories_path, class: 'btn btn-default pull-right' %>
+    <%= link_to t('path.backend.categories.new'), new_backend_category_path, class: 'btn btn-default pull-right' %>
   </div>
 </div>
 <div class="backend-panel">
   <div class="backend-panel-head bg-primary">
-   <%= t('dashboard.title.products.index') %>
+    <%= t('dashboard.title.categories.show') %>
+    <%= link_to t('path.backend.categories.edit'), edit_backend_category_path(@category) %>
+  </div>
+  <div class="backend-panel-body">
+    <div class="backend-panel-info">
+      <h3><%= @category.title %></h3>
+      <p><%= @category.description %></p>
+    </div>
+  </div>
+</div>
+<div class="backend-panel">
+  <div class="backend-panel-head bg-primary">
+    <%= t('dashboard.title.categories.products') %>
   </div>
   <div class="backend-panel-body">
     <table class="table">
       <thead>
         <tr>
           <th>ID</th>
-          <% [:title, :category, :description, :price, :status ].each do |column| %>
+          <% [:title, :description, :price, :status].each do |column| %>
             <th><%= i18n :column, model: :product, name: column %></th>
           <% end %>
           <th>Actions</th>
@@ -28,7 +37,6 @@
           <tr>
             <td><%= product.id %></td>
             <td><%= product.title %></td>
-            <td><%= product.category.title %></td>
             <td><%= product.description.truncate(30) %></td>
             <td><%= product.price %></td>
             <td><%= i18n :enum, model: :product, status: product.status %></td>
