@@ -2,11 +2,11 @@
   <%= stylesheet_link_tag 'backend/navbar' %>
 <% end %>
 <ul id="aside-menu">
-  <li id="title"><%= t('app_name') %></li>
-  <li><%= link_to t('dashboard.aside.categories'), backend_categories_path %></li>
-  <li><%= link_to t('dashboard.aside.products'),   backend_products_path %></li>
-  <li><%= link_to t('dashboard.aside.orders'),     backend_orders_path %></li>
-  <li><%= link_to t('dashboard.aside.users'),      backend_users_path %></li>
+  <li id="title"><%= link_to t('app_name'), root_path, data: { turbolinks: false } %></li>
+  <li><%= link_to t('dashboard.aside.categories'), backend_categories_path, class: controller_name == 'categories' ? 'active' : '' %></li>
+  <li><%= link_to t('dashboard.aside.products'),   backend_products_path,   class: controller_name == 'products'   ? 'active' : '' %></li>
+  <li><%= link_to t('dashboard.aside.orders'),     backend_orders_path,     class: controller_name == 'orders'     ? 'active' : '' %></li>
+  <li><%= link_to t('dashboard.aside.users'),      backend_users_path,      class: controller_name == 'users'      ? 'active' : '' %></li>
   <li><%= link_to t('dashboard.aside.settings'),   '#' %></li>
 </ul>
 
