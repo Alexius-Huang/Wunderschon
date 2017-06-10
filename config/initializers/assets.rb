@@ -16,11 +16,15 @@ css_files = %w(
   category/show.scss
   backend.scss
   backend/navbar.scss
+  backend/products.scss
+  backend/categories.scss
 )
 js_files = %w(
   rabbit.js
   categories.js
   backend.js
+  backend/categories.js
+  backend/products.js
 )
 Rails.application.config.assets.precompile += css_files
 Rails.application.config.assets.precompile += js_files

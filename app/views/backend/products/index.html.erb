@@ -1,3 +1,7 @@
+<%= content_for :js do %>
+  <%= javascript_include_tag 'backend' %>
+  <%= javascript_include_tag 'backend/products' %>
+<% end %>
 <div class="backend-panel border-primary">
   <div class="backend-panel-body">
     <%= link_to t('path.back_link'), :back, class: 'btn btn-default' %>

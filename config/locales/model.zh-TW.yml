@@ -17,7 +17,7 @@ zh-TW:
         status: 狀態
       order_item:
         order: 訂單
-        product: 商品名稱 
+        product: 商品名稱
         price: 單價
         quantity: 數量
       product:

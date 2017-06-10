@@ -4,4 +4,4 @@
     <%= link_to t('path.backend.categories.index'), backend_categories_path, class: 'btn btn-default pull-right' %>
   </div>
 </div>
-<%= render 'form', category: @category, action: :new, url: backend_categories_path %>
+<%= render 'form', category: @category, action: :edit, url: backend_category_path(@category) %>

@@ -1,0 +1,12 @@
+<div class="backend-panel">
+  <div class="backend-panel-head bg-success">
+    <%= t("dashboard.title.categories.#{action}") %>
+  </div>
+  <div class="backend-panel-body">
+    <%= simple_form_for category, url: url do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.button :submit, t("path.backend.categories.#{action}") %>
+    <% end %>
+  </div>
+</div>

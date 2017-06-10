@@ -1,3 +1,7 @@
+<%= content_for :js do %>
+  <%= javascript_include_tag 'backend' %>
+  <%= javascript_include_tag 'backend/categories' %>
+<% end %>
 <div class="backend-panel border-primary">
   <div class="backend-panel-body">
     <%= link_to t('path.back_link'), :back, class: 'btn btn-default' %>
@@ -9,7 +13,7 @@
     <%= t('path.backend.categories.index') %>
   </div>
   <div class="backend-panel-body">
-    <table class="table">
+    <table id="categories-table" class="table">
       <thead>
         <tr>
           <th>ID</th>
@@ -26,6 +30,8 @@
             <td><%= category.description.truncate(30) %></td>
             <td>
               <%= link_to t('path.backend.categories.show'), backend_category_path(category), class: 'btn btn-xs btn-default' %>
+              <%= link_to t('path.backend.categories.edit'), edit_backend_category_path(category), class: 'btn btn-xs btn-default' %>
+              <%= link_to t('path.backend.categories.destroy'), '#', class: 'btn btn-xs btn-default destroy-category-btn', data: { title: category.title, url: backend_category_path(category), turbolinks: false } %>
               <%= link_to t('path.backend.products.new'), new_backend_product_path(category), class: 'btn btn-xs btn-default' %>
             </td>
           </tr>
@@ -34,3 +40,5 @@
     </table>
   </div>
 </div>
+
+<%= render 'delete_modal', model: :category %>
