@@ -21,7 +21,7 @@ RSpec.describe Order, type: :model do
       context 'with_order_items' do
         it 'should create at least one OrderItem records associated to the Order record' do
           order = create(:order, :with_order_items)
-          expect(order.order_items.any?).to be_truthy 
+          expect(order.order_items.any?).to be_truthy
         end
       end
     end

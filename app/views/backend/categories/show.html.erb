@@ -29,7 +29,7 @@
       <thead>
         <tr>
           <th>ID</th>
-          <% %i(title description price status).each do |column| %>
+          <% %i[title description price status].each do |column| %>
             <th><%= i18n :column, model: :product, name: column %></th>
           <% end %>
           <th>Actions</th>
