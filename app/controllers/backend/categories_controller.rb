@@ -14,7 +14,7 @@ class Backend::CategoriesController < BackendController
     @category = Category.new(resource_params)
     if @category.save
       action_success title: @category.title
-      redirect_to backend_categories_path
+      redirect_to @category
     else
       action_failed
       render :new
