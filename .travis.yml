@@ -11,9 +11,7 @@ install:
   - npm i -g yarn
   - yarn
 script:
-  - cp Procfile.sample Procfile
   - bundle exec rails db:setup
-  - bundle exec rubocop
   - bundle exec rspec
 cache:
   bundler: true
