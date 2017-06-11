@@ -2,6 +2,23 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
+  describe 'factory' do
+    it 'should create a valid record' do
+      category = build(:category)
+      expect(category.valid?).to be_truthy
+      expect(category.save).to be_truthy
+    end
+
+    describe 'traits' do
+      context 'with_products' do
+        let!(:category) { create(:category, :with_products) }
+        it 'creates category with at least one products' do
+          expect(category.products.any?).to be_truthy
+        end
+      end
+    end
+  end
+
   describe 'association' do
     it { is_expected.to have_many(:products) }
   end

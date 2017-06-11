@@ -2,6 +2,16 @@
 require 'rails_helper'
 
 RSpec.describe OrderItem, type: :model do
+  describe 'factory' do
+    it 'should create a valid record' do
+      order_item = build(:order_item)
+      expect(order_item.valid?).to be_truthy
+      expect(order_item.order).not_to be_nil
+      expect(order_item.product).not_to be_nil
+      expect(order_item.save).to be_truthy
+    end
+  end
+
   describe 'association' do
     it { is_expected.to belong_to(:order) }
     it { is_expected.to belong_to(:product) }
