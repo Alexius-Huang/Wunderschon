@@ -42,8 +42,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    animate-rails (1.0.10)
-      rails
     arel (8.0.0)
     ast (2.3.0)
     autoprefixer-rails (7.1.1)
@@ -234,6 +232,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (2.0)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
     websocket (1.2.4)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
@@ -246,7 +248,6 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
-  animate-rails
   bootstrap-sass
   byebug
   capybara (~> 2.13)
@@ -275,9 +276,10 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webpacker
 
 RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.14.6
+   1.15.1

@@ -36,12 +36,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'aasm'
-gem 'animate-rails'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'paranoia', '~> 2.2'
 gem 'settingslogic'
 gem 'simple_form'
+gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

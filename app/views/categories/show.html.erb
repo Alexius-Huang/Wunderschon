@@ -1,8 +1,8 @@
-<%= content_for :js do %>
-  <%= javascript_include_tag 'categories' %>
-<% end %>
 <%= content_for :css do %>
   <%= stylesheet_link_tag 'category/show' %>
+<% end %>
+<%= content_for :js do %>
+  <%= javascript_pack_tag 'category_aside_navbar' %>
 <% end %>
 
 <div id="category-show-mobile-version" class="mobile-version col-xs-12 col-sm-12">

@@ -51,3 +51,5 @@ bower.json
 
 /node_modules
 /yarn-error.log
+/public/packs
+/node_modules
