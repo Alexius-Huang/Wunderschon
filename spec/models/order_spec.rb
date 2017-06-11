@@ -3,6 +3,30 @@ require 'rails_helper'
 
 RSpec.describe Order, type: :model do
   let!(:order) { create(:order, :with_order_items) }
+  describe 'factory' do
+    it 'should create a valid record' do
+      order = build(:order)
+      expect(order.valid?).to be_truthy
+      expect(order.save).to be_truthy
+    end
+
+    describe 'trait' do
+      context 'with_one_item' do
+        it 'should create exactly one OrderItem record associated to the Order record' do
+          order = create(:order, :with_one_item)
+          expect(order.order_items.count).to be 1
+        end
+      end
+
+      context 'with_order_items' do
+        it 'should create at least one OrderItem records associated to the Order record' do
+          order = create(:order, :with_order_items)
+          expect(order.order_items.any?).to be_truthy
+        end
+      end
+    end
+  end
+
   describe 'association' do
     it { is_expected.to have_many(:order_items) }
   end

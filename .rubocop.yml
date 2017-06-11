@@ -7,7 +7,8 @@ AllCops:
     - bin/**/*
     - db/schema.rb
     - config/**/*
-    - lib/tasks/*.rake
+    - lib/tasks/*.rak
+    - node_modules/**/*
 
 Rails:
   Enabled: true
@@ -90,7 +91,7 @@ SymbolProc:
 MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Layout/EmptyLineAfterMagicComment:
+Style/EmptyLineAfterMagicComment:
   Enabled: false
 
 ConditionalAssignment:

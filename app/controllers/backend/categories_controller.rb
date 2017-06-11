@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Backend::CategoriesController < BackendController
-  before_action :find_category, only: %i(show edit update destroy)
+  before_action :find_category, only: %i[show edit update destroy]
 
   def index
     @categories = Category.all

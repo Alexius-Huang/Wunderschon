@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Backend::ProductsController < BackendController
-  before_action :find_product, only: %i(show edit update destroy)
+  before_action :find_product, only: %i[show edit update destroy]
   def index
     @products = Product.all
   end
