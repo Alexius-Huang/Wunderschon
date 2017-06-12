@@ -28,6 +28,8 @@ zh-TW:
       'no': 取消
 
   dashboard:
+    table:
+      tools: 工具
     aside:
       categories: 商品類別
       products: 商品

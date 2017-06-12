@@ -12,7 +12,8 @@ module BackendHelper
       when 'edit'
         previous_path_segment = path_arr[index - 2]
         t(i18n_prefix + path_segment, target: t(i18n_prefix + previous_path_segment))
-      when '' then nil
+      when 'page' then nil
+      when ''     then nil
       else
         t(i18n_prefix + path_segment)
       end

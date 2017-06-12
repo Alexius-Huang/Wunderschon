@@ -28,6 +28,8 @@ zh-TW:
       'no': "No"
 
   dashboard:
+    table:
+      tools: Tools
     aside:
       categories: Categories
       products: Products

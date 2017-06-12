@@ -22,4 +22,10 @@ class Product < ApplicationRecord
       transitions from: :available, to: :unavailable
     end
   end
+
+  scope :paginate, ->(options = {}) {
+    order(options[:sort_by] || :category_id)
+      .page(options[:page] || params[:page])
+      .per(options[:per] || 10)
+  }
 end

@@ -88,7 +88,10 @@ input#error-msg:checked   ~ .backend-notice.bg-danger {
   transition: .25s;
 }
 .backend-panel-body {
-  padding: 12pt 20pt;
+  padding: 20pt;
+}
+.backend-panel-body + .backend-panel-body {
+  padding-top: 0;
 }
 // .backend-panel:hover {
 //   border-color: #888;
@@ -176,4 +179,28 @@ input#error-msg:checked   ~ .backend-notice.bg-danger {
 }
 .backend-modal-close-btn:hover {
   animation: RotateClockwise .25s;
+}
+table.backend-table {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10pt;
+  background-color: #222;
+  tr {
+    border-bottom: 3pt solid #333;
+    transition: .25s;
+  }
+  tbody > tr:hover {
+    background-color: #444;
+    transition: .25s;
+  }
+  th {
+    background-color: rgba(2,117,216, 1);
+    text-align: center;
+  }
+  th + th {
+    border-left: 2pt solid rgba(2,97,196, 1);
+  }
+  td, th {
+    padding: 6pt 10pt;
+  }
 }
