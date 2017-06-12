@@ -58,14 +58,14 @@ RSpec.describe Backend::CategoriesController, type: :controller do
     describe '#show' do
       it_should_behave_like 'render template', :show
       it_should_behave_like 'status code', :show, 200
-      it_should_behave_like 'instance variable', :show, variable: :category, type: Category, persisted: false
+      it_should_behave_like 'instance variable', :show, variable: :category, type: Category, persisted: true
       it_should_behave_like 'instance variable', :show, variable: :products, type: ActiveRecord::Relation
     end
 
     describe '#edit' do
       it_should_behave_like 'render template', :edit
       it_should_behave_like 'status code', :edit, 200
-      it_should_behave_like 'instance variable', :edit, variable: :category, type: Category
+      it_should_behave_like 'instance variable', :edit, variable: :category, type: Category, persisted: true
     end
   end
 
