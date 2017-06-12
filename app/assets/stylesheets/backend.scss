@@ -88,7 +88,13 @@ input#error-msg:checked   ~ .backend-notice.bg-danger {
   transition: .25s;
 }
 .backend-panel-body {
-  padding: 12pt 20pt;
+  padding: 12pt 20pt 0 20pt;
+}
+.backend-panel-body + .backend-panel-body {
+  padding: 0 20pt;
+}
+.backend-panel-body:last-child {
+  padding-bottom: 12pt;
 }
 // .backend-panel:hover {
 //   border-color: #888;

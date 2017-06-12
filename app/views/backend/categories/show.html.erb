@@ -53,6 +53,10 @@
       </tbody>
     </table>
   </div>
+
+  <div class="backend-panel-body">
+    <%= paginate @products %>
+  </div>
 </div>
 
 <%= render 'backend/shared/delete_modal', model: :product %>

@@ -38,6 +38,10 @@
       </tbody>
     </table>
   </div>
+
+  <div class="backend-panel-body">
+    <%= paginate @categories %>
+  </div>
 </div>
 
 <%= render 'backend/shared/delete_modal', model: :category %>

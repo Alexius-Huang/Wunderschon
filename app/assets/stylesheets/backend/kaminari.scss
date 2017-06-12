@@ -1,0 +1,48 @@
+.backend-panel-body > nav.pagination {
+  margin: 0;
+  margin-bottom: 5pt;
+  height: 30pt;
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #222;
+  border-radius: none;
+  font-size: 0;
+  border-radius: 0;
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+.backend-panel-body > nav.pagination > span {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  height: 30pt;
+}
+.backend-panel-body > nav.pagination > span > a {
+  display: block;
+  height: 30pt;
+  line-height: 30pt;
+  padding: 0 10pt;
+  margin: 0;
+  color: #999;
+  text-decoration: none;
+  font-size: 10pt;
+  transition: .25s;
+}
+.backend-panel-body > nav.pagination > span:hover > a {
+  color: #ddd;
+  background-color: #555;
+  transition: .25s;
+}
+.backend-panel-body > nav.pagination > span.page.current {
+  margin: 0;
+  padding: 0 10pt;
+  display: inline-block;
+  height: 30pt;
+  line-height: 30pt;
+  color: #ddd;
+  background-color: rgba(2,117,216, 1);
+  text-decoration: none;
+  font-size: 10pt;
+}
