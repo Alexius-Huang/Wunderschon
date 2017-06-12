@@ -13,7 +13,7 @@ class Backend::ProductsController < BackendController
     @product = Product.new(resource_params)
     if @product.save
       action_success title: @product.title
-      redirect_to backend_products_path
+      redirect_to backend_product_path(@product)
     else
       action_failed
       render :new

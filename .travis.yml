@@ -23,5 +23,7 @@ addons:
   code_climate:
     repo_token:
       secure: "VPkjCAnY2PcKoHQe6UZE8GPy+G6D40GD+pwqY+yO8vVXFyM2LCX4gly/RaKLksfVxhPh5j2pZoIlS0YsDl0e1E2Im6Hqb6f+nYOakrWWwmOVHRJssHPAomPicmL9scRS/UYIIOc7Q6QDY+pjco4xCw4yNtfSeHP9G1tlFS86UyPfHu1HumYszHpmsJBJLdeQ/MhaO4PfuNynlF6DvclqfTC1U9M8xiMkt3s336G1GSsIKLzGr20fPjkP4yxyNsE+rCpJGpZQUcNEhoU+ylZOo6uBurtUlifqybhAWZ7looYOvqxKvsK/xeGqky9/KCDGw9brWfUyl0Twx+tmsZS/94iVwmA4aoXzC4qUtau34H+mLHtGT+4Mszw2K4Ga7VqADYCMd6m9TY5FOdhyxTKgWYkbROUyh91VOJGN+bN4f2wWSrxAyAMNKBaghmkh0dfTmMXFZGb6AT9utBlSjl5QnRq3lmO33WHs/AtqKOvPQk2aATI2ApFmS5WTr3XwG0brz+Ek8KfDVXhnOcoJE/pQVDKMDaW4J1GbluII6r/KDAgtumf45HCye/3o6GnfwswvZLP0urb/9FOt4HYV2GWCe/e8BbSci/4wPrxJWaTE+RX+5PMbBzzd7fqRanZtdSRQe+6hHRlzXPFKyFkRcvRcLRG8eQ0lm33UE905TwusXxA="
+before_install:
+  - openssl aes-256-cbc -K $encrypted_fb02b7c5fff3_key -iv $encrypted_fb02b7c5fff3_iv -in secrets.yml.enc -out config/secrets.yml -d
 after_success:
   - bundle exec codeclimate-test-reporter
