@@ -12,19 +12,19 @@
    <%= t('dashboard.title.products.index') %>
   </div>
   <div class="backend-panel-body">
-    <table class="table">
+    <table class="backend-table">
       <thead>
         <tr>
           <th>ID</th>
           <% %i[title category price status].each do |column| %>
             <th><%= i18n :column, model: :product, name: column %></th>
           <% end %>
-          <th>Actions</th>
+          <th><%= t('dashboard.table.tools'); %></th>
         </tr>
       </thead>
       <tbody>
         <% @products.each do |product| %>
-          <tr>
+          <tr class="text-center">
             <td><%= product.id %></td>
             <td><%= product.title %></td>
             <td><%= product.category.title %></td>

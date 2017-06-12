@@ -12,21 +12,21 @@
     <%= t('path.backend.categories.index') %>
   </div>
   <div class="backend-panel-body">
-    <table id="categories-table" class="table">
+    <table id="categories-table" class="backend-table">
       <thead>
         <tr>
           <th>ID</th>
           <th><%= i18n :column, model: :category, name: :title %></th>
           <th><%= i18n :column, model: :category, name: :description %></th>
-          <th>Actions</th>
+          <th><%= t('dashboard.table.tools'); %></th>
         </tr>
       </thead>
       <tbody>
         <% @categories.each do |category| %>
-          <tr>
+          <tr class="text-center">
             <td><%= category.id %></td>
             <td><%= category.title %></td>
-            <td><%= category.description.truncate(30) %></td>
+            <td class="text-left"><%= category.description.truncate(30) %></td>
             <td>
               <%= link_to t('path.backend.categories.show'), backend_category_path(category), class: 'btn btn-xs btn-default' %>
               <%= link_to t('path.backend.categories.edit'), edit_backend_category_path(category), class: 'btn btn-xs btn-default' %>
