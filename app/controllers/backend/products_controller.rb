@@ -3,7 +3,7 @@ class Backend::ProductsController < BackendController
   before_action :find_product, only: %i[show edit update destroy]
 
   def index
-    @products = Product.order(:category_id).page(params[:page]).per(10)
+    @products = Product.paginate
   end
 
   def new

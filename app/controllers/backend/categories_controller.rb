@@ -3,7 +3,7 @@ class Backend::CategoriesController < BackendController
   before_action :find_category, only: %i[show edit update destroy]
 
   def index
-    @categories = Category.order(:title).page(params[:page]).per(10)
+    @categories = Category.paginate
   end
 
   def new
@@ -22,7 +22,7 @@ class Backend::CategoriesController < BackendController
   end
 
   def show
-    @products = @category.products.order(:title).page(params[:page]).per(10)
+    @products = @category.products.paginate
   end
 
   def edit; end
