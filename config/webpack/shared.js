@@ -41,10 +41,22 @@ module.exports = {
     new ManifestPlugin({
       publicPath: output.publicPath,
       writeToFileEmit: true
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      jquery: 'jquery',
+      Rx: 'Rx',
+      PIXI: 'PIXI'
     })
   ],
 
   resolve: {
+    alias: {
+      jquery: 'jquery/src/jquery',
+      Rx: 'rxjs/bundles/Rx',
+      PIXI: 'pixi.js/dist/pixi.min.js'
+    },
     extensions: settings.extensions,
     modules: [
       resolve(settings.source_path),

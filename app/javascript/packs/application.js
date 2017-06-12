@@ -7,6 +7,12 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
+import jQuery from 'jquery'
+import Rx from 'Rx'
+import PIXI from 'PIXI'
+
+window.jQuery = jQuery
+
 $(document).ready(() => {
 	let navbarItemCount = $('#mobile-slide-menu').children().length;
   let navbarItemHeight = 51;

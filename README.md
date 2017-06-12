@@ -5,7 +5,6 @@
 [![Ruby on Rails](https://img.shields.io/badge/Ruby_on_Rails-5.1.1-red.svg?style=flat
 )](http://rubyonrails.org) [![Ruby](https://img.shields.io/badge/Ruby-4.2.1-red.svg?style=flat)](http://rubyonrails.org)
 
-
 [![forthebadge](http://forthebadge.com/images/badges/made-with-ruby.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
 ![Wunderschön Rabbit](https://github.com/Maxwell-Alexius/Wunderschon/blob/master/README_Images/root_page.png?raw=true)
@@ -15,6 +14,86 @@
 **Wunderschön** means **very gorgeous and wonderful** in German. This project is a kind of online shopping website which is filled with sketches of rabbits and its products.
 
 **Wunderschön** is built with **[Ruby](https://www.ruby-lang.org/en/)** version 2.4.1 and **[Rails 5.1](http://rubyonrails.org/)**.
+
+## Requirement
+
+- Ruby Version 4.2.1
+- Rails Version 5.1.1
+- NodeJS Version >= 6.4.0
+
+## Installation & Setup
+
+Clone It!
+
+```
+$ git clone git@github.com:Maxwell-Alexius/Wunderschon.git
+```
+
+Go into the project folder:
+
+```
+$ cd Wunderschon
+```
+
+Bundle it:
+
+```
+$ bundle install
+```
+
+Create and migrate database:
+
+```
+$ bundle exec rails db:create 
+$ bundle exec rails db:migrate
+```
+
+If `yarn` haven't installed in your OS, see [installation of yarn](https://yarnpkg.com/lang/en/docs/install/). After yarn installed, run this command to install JS packages via yarn:
+
+```
+$ yarn init
+```
+
+You can choose to open Rails server and open `webpacker` (JS develop server) separately, that requires you to open additional two terminal and run two commands separately:
+
+```
+# Rails server
+$ bundle exec rails server
+```
+
+```
+# Webpacker JS develop server
+$ ./bin/webpack-dev-server
+```
+
+Or you can integrate both server into a terminal via one command:
+
+```
+$ foreman start
+```
+
+It will automatically start both Rails server and JS webpacker develop server in the same terminal.
+
+# Develop Notes
+
+## Gems Info
+
+Excluded the Rails default gems, the info of the included Ruby gems are listed below (in an alphabetical order):
+
+- [`aasm`](https://github.com/aasm/aasm) - Perfect simulation of state machine
+- [`awesome_print`](https://github.com/awesome-print/awesome_print) - Pretty print for Ruby objects with style in console
+- [`bootstrap-sass`](https://github.com/twbs/bootstrap-sass) - Sass support for Bootstrap 2 and 3
+- [`factory_girl_rails`](https://github.com/thoughtbot/factory_girl_rails) - Factory for producing records with different trait in a fast, easy and efficient way
+- [`faker`](https://github.com/stympy/faker) - Generating fake data
+- [`kaminari`](https://github.com/kaminari/kaminari) - An awesome pagination tool
+- [`paranois`](https://github.com/rubysherpas/paranoia) - Prevention of hard destroy. In other words, *rather than deleting the data, it just hide it*.
+- [`rails-controller-spec`](https://github.com/rails/rails-controller-testing) - For Rails controller tests with RSpec
+- [`rspec-rails`](https://github.com/rspec/rspec-rails) - Brilliant testing framework for Rails
+- [`rubocop`](https://github.com/bbatsov/rubocop) - Static Ruby code analyzer and syntax checker based on Ruby style guide 
+- [`settingslogic`](https://github.com/binarylogic/settingslogic) - Simple, straightforward settings solution
+- [`simple_form`](https://github.com/plataformatec/simple_form) - Namely, simple form parser
+- [`shoulda-matchers`](https://github.com/thoughtbot/shoulda-matchers) - Testing matchers
+- [`webpacker`](https://github.com/rails/webpacker) - An integration of JS webpack development with Rails
 
 ## JS Asset Pipeline with Webpacker & Yarn
 
@@ -55,7 +134,7 @@ webpacker:install:angular        Installs and setup example Angular component
 webpacker:install:elm            Installs and setup example Elm component
 ```
 
-4. Choose an installation command, e.g. if want to install with `React`, run 
+4. Choose an installation command, e.g. if you want to install with `React`, run 
 
 ```
 $ bundle exec rake webpacker:install:react
@@ -82,11 +161,6 @@ $ bundle exec webpacker:compile
   </head>
   ...
 ```
-
-For more information, you can read:
-- [`webpacker` Gem Github](https://github.com/rails/webpacker)
-- [Embracing Change: Rails 5.1 Adopts Yarn, Webpack, and the JS Ecosystem](http://pixelatedworks.com/articles/embracing-change-rails51-adopts-yarn-webpack-and-the-js-ecosystem/)
-- [Introducing Webpacker](https://medium.com/statuscode/introducing-webpacker-7136d66cddfb)
 
 ### Develop with `foreman`
 
@@ -118,20 +192,68 @@ It is very easy to use Yarn, similar to node package manager, initialize Yarn fi
 $ yarn init
 ```
 
-Use the command to install node package:
+Use the command to install any node package:
 
 ```
 $ yarn add [package-name]
 ```
 
-Take Wunderschön (a.k.a. this project) for example, to install [`rxjs`](https://github.com/ReactiveX/rxjs), run:
+For example, adding `jquery` via yarn is simple:
 
 ```
-$ yarn add rxjs
+$ yarn add jquery
 ```
 
-Check the `node_modules` directory, you can see that the bundled and minified Rx.js file is located in `node_modules/rxjs/bundles/Rx.min.js`. We can then include the JS file in the `application.html.erb`:
+Webpack prefers the original, unmodified source code of a library, rather than the packaged “dist” code. In Rails `config/webpack/shared.js`, add the `alias` key in the `resolve` object with an object which aliases the "jquery" with the directory of the jQuery file:
 
 ```js
-//= require rxjs/bundles/Rx.min.js
+// ... Omitted
+module.exports = {
+  // ... Omitted
+  
+  resolve: {
+    alias: {
+      jquery: 'jquery/src/jquery'
+    },
+    // ... Omitted
+  }
+}
 ```
+
+In order to make jQuery available to other modules, we can use the **`webpack.ProvidePlugin` makes a module available as a variable in every other module required by webpack**. Therefore, in the same file, add the statement in the `plugins` part of the export module object:
+
+```js
+// ... Omitted
+module.exports = {
+  // ... Omitted
+  
+  plugins: [
+    // Omitted
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      jquery: 'jquery'
+    })
+  ],
+
+  // ... Omitted
+}
+```
+
+Lastly, we can then require jQuery in the pack. Import jQuery into `app/javascript/packs/application.js` and make it available globally using the `window` object:
+
+```js
+import jQuery from 'jquery'
+window.jQuery = jQuery
+```
+
+For more information, you can read:
+- [`webpacker` Gem Github](https://github.com/rails/webpacker)
+- [Embracing Change: Rails 5.1 Adopts Yarn, Webpack, and the JS Ecosystem](http://pixelatedworks.com/articles/embracing-change-rails51-adopts-yarn-webpack-and-the-js-ecosystem/)
+- [Introducing Webpacker](https://medium.com/statuscode/introducing-webpacker-7136d66cddfb)
+
+## Node Packages Info
+
+- [`jQuery`](https://github.com/jquery/jquery) - Common but powerful JS library for fundamental DOM manipulations, events, traversal, animation and simple AJAX
+- [`Rx.js`](https://github.com/ReactiveX/rxjs) - Powerful reactive programming with observable patterns implemented in JavaScript
+- [`PIXI.js`](https://github.com/pixijs/pixi.js) - Super fast HTML 5 2D rendering engine that uses webGL with canvas fallback

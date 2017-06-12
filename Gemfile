@@ -37,7 +37,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'aasm'
 gem 'bootstrap-sass'
-gem 'jquery-rails'
 gem 'kaminari'
 gem 'paranoia', '~> 2.2'
 gem 'settingslogic'
@@ -53,7 +52,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'selenium-webdriver'
-  gem 'shoulda'
+  gem 'shoulda-matchers'
 end
 
 group :development do
