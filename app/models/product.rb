@@ -28,4 +28,13 @@ class Product < ApplicationRecord
       .page(options[:page] || params[:page])
       .per(options[:per] || 10)
   }
+
+  def info
+    {
+      title: title,
+      description: description,
+      price: price,
+      category: category.info
+    }
+  end
 end

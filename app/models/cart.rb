@@ -17,6 +17,15 @@ class Cart
     end
   end
 
+  def info
+    {
+      total_price: total_price,
+      empty: empty?,
+      item_count: cart_items.count,
+      items: cart_items.map(&:info)
+    }
+  end
+
   def total_price
     cart_items.map(&:total_price).sum
   end
@@ -32,6 +41,7 @@ class Cart
   end
 
   def add_item(product, quantity = 1)
+    quantity = quantity.to_i unless quantity.is_a? Integer
     raise ArgumentError, 'Cart cannot add "unavailable" product' if product.unavailable?
     if product_exist?(product)
       get_cart_item_by_product(product).increase quantity
@@ -41,6 +51,7 @@ class Cart
   end
 
   def delete_item(product, quantity = 1)
+    quantity = quantity.to_i unless quantity.is_a? Integer
     raise ArgumentError, 'Should not delete product which is not in the cart item list' unless product_exist?(product)
     cart_item = get_cart_item_by_product(product)
     cart_item.decrease quantity
@@ -53,7 +64,7 @@ class Cart
 
   class << self
     def from_hash(cart_hash)
-      if cart_hash.key? 'items'
+      if !cart_hash.nil? and cart_hash.key? 'items'
         new(cart_hash['items'].map { |item| { product: Product.find(item['product_id']), quantity: item['quantity'], price: item['price'] } })
       else
         new

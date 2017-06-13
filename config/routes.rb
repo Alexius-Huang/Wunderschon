@@ -19,4 +19,10 @@ Rails.application.routes.draw do
     resources :users
     get 'main'
   end
+
+  namespace :ajax do
+    get  'cart/get_data' => 'cart#get_data', as: :get_cart_data
+    post 'cart/add_product/:product_id/(:quantity)' => 'cart#add_product', as: :add_product_to_cart
+    post 'cart/delete_product/:product_id/(:quantity)' => 'cart#delete_product', as: :delete_product_from_cart
+  end
 end
