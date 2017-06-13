@@ -27,4 +27,10 @@ RSpec.describe Category, type: :model do
     it { is_expected.to validate_presence_of(:title)       }
     it { is_expected.to validate_presence_of(:description) }
   end
+
+  describe 'instance methods' do
+    describe '.info' do
+      it 'describe CategoryModel.info'
+    end
+  end
 end

@@ -27,6 +27,10 @@ RSpec.describe CartItem, type: :model do
   end
 
   describe 'instance methods' do
+    describe '.info' do
+      it 'describes CartItemMode.info'
+    end
+
     describe '.total_price' do
       it 'should get the total price of the cart_item' do
         expect(cart_item.total_price).to eq (cart_item.price * cart_item.quantity)

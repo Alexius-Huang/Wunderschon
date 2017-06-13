@@ -82,6 +82,10 @@ RSpec.describe Cart, type: :model do
       end
     end
 
+    describe '.info' do
+      it 'describes CartModel.info'
+    end
+
     describe '.total_price' do
       it 'should get the total price of the cart' do
         expect(cart.total_price).to eq cart.cart_items.map(&:total_price).sum

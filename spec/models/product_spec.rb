@@ -65,17 +65,23 @@ RSpec.describe Product, type: :model do
 
   describe 'class methods' do
     # TODO: Issue #10
-    # describe '.history_earn' do
-    # end
+    describe '.history_earn' do
+      it '#10 describes ProductModel#history_earn'
+    end
   end
 
   describe 'instance methods' do
-    # TODO: Issue #10
-    # describe '.history_earn' do
-    # end
+    describe '.info' do
+      it 'describes ProductModel.info'
+    end
 
     # TODO: Issue #10
-    # describe '.sold_quantity' do
-    # end
+    describe '.history_earn' do
+      it '#10 describes ProductModel.history_earn'
+    end
+
+    describe '.sold_quantity' do
+      it '#10 describes ProductModel.sold_quantity'
+    end
   end
 end
