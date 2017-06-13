@@ -16,9 +16,6 @@
   font-weight: 100;
   font-size: 14pt;
 }
-.navbar-body > ul > li {
-  display: inline-block;
-}
 .brand {
   font-size: 18pt;
 }
@@ -41,22 +38,24 @@
   transition: .25s;
 }
 #mobile-slide-menu {
-  clear: both;
+  height: 200pt;
+  overflow: scroll;
+  display: none;
 }
 #mobile-slide-menu > div {
-  display: none;
   height: 50px;
   line-height: 50px;
   font-size: 12pt;
   margin: 0 5pt;
-  padding-left: 5pt;
-  border-top: 1px dashed #888;
+  padding: 0 20pt;
+  border-top: 2px dashed #888;
 }
 #categories-icon {
   width: 25pt;
   height: 40pt;
   position: relative;
-  margin: 5pt 0 0 10pt;
+  vertical-align: middle;
+  margin: 0 auto;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -75,7 +74,7 @@
   background: #888;
   border-radius: 8pt;
   opacity: 1;
-  left: 0;
+  left: 10pt;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -86,13 +85,13 @@
   transition: .25s ease-in-out;
 }
 #categories-icon span:nth-child(1) {
-  top: 9pt;
+  top: 15pt;
 }
 #categories-icon span:nth-child(2),#categories-icon span:nth-child(3) {
-  top: 17pt;
+  top: 22pt;
 }
 #categories-icon span:nth-child(4) {
-  top: 24pt;
+  top: 29pt;
 }
 #categories-icon.open span:nth-child(1) {
   top: 18pt;
