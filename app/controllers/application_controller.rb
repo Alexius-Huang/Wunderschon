@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
     params[:type] = :error
     flash[:error] = i18n(:flash, params)
   end
+
+  def current_cart
+    Cart.from_hash session[:cart]
+  end
 end

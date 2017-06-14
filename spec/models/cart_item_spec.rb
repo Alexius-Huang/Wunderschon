@@ -27,6 +27,16 @@ RSpec.describe CartItem, type: :model do
   end
 
   describe 'instance methods' do
+    describe '.info' do
+      let(:cart_item_info) { cart_item.info }
+      it 'should get the info of the cart item' do
+        expect(cart_item_info[:product]).to     be_kind_of Hash
+        expect(cart_item_info[:quantity]).to    be_kind_of Integer
+        expect(cart_item_info[:price]).to       be_kind_of Integer
+        expect(cart_item_info[:total_price]).to be_kind_of Integer
+      end
+    end
+
     describe '.total_price' do
       it 'should get the total price of the cart_item' do
         expect(cart_item.total_price).to eq (cart_item.price * cart_item.quantity)

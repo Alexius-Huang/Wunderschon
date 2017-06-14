@@ -2,6 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+  let(:product) { create(:product) }
   describe 'factory' do
     it 'should create a valid record' do
       product = build(:product)
@@ -65,17 +66,29 @@ RSpec.describe Product, type: :model do
 
   describe 'class methods' do
     # TODO: Issue #10
-    # describe '.history_earn' do
-    # end
+    describe '.history_earn' do
+      # it '#10 describes ProductModel#history_earn'
+    end
   end
 
   describe 'instance methods' do
-    # TODO: Issue #10
-    # describe '.history_earn' do
-    # end
+    describe '.info' do
+      let(:product_info) { product.info }
+      it 'it should get the info of the product' do
+        expect(product_info[:title]).to       be_kind_of String
+        expect(product_info[:description]).to be_kind_of String
+        expect(product_info[:price]).to       be_kind_of Integer
+        expect(product_info[:category]).to    be_kind_of Hash
+      end
+    end
 
     # TODO: Issue #10
-    # describe '.sold_quantity' do
-    # end
+    describe '.history_earn' do
+      # it '#10 describes ProductModel.history_earn'
+    end
+
+    describe '.sold_quantity' do
+      # it '#10 describes ProductModel.sold_quantity'
+    end
   end
 end

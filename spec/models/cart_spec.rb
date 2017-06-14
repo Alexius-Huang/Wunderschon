@@ -82,6 +82,16 @@ RSpec.describe Cart, type: :model do
       end
     end
 
+    describe '.info' do
+      let(:cart_info) { cart.info }
+      it 'should get the info of the cart' do
+        expect(cart_info[:total_price]).to be_kind_of Integer
+        expect(cart_info[:empty]).to       be_kind_of FalseClass
+        expect(cart_info[:item_count]).to  be_kind_of Integer
+        expect(cart_info[:items]).to       be_kind_of Array
+      end
+    end
+
     describe '.total_price' do
       it 'should get the total price of the cart' do
         expect(cart.total_price).to eq cart.cart_items.map(&:total_price).sum

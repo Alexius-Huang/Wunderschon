@@ -11,6 +11,13 @@ class Category < ApplicationRecord
       .per(options[:per] || 10)
   }
 
+  def info
+    {
+      title: title,
+      description: description
+    }
+  end
+
   def available_products
     products.where(category_id: self, status: 'available')
   end
