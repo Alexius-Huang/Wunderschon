@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 class Ajax::CartController < AjaxController
-  before_action :find_product, :find_cart, except: %i[get_data]
-  after_action  :set_cart!, except: %i[get_data]
+  before_action :find_product, :find_cart, except: %i[info]
+  after_action  :set_cart!, except: %i[info]
 
   def add_product
     @current_cart.add_item(@product, params[:quantity] || 1)
     respond_to do |format|
-      format.json { render json: { status: 200 } }
+      format.json { render json: status(:ok) }
     end
   end
 
   def delete_product
     @current_cart.delete_item(@product, params[:quantity] || 1)
     respond_to do |format|
-      format.json { render json: { status: 200 } }
+      format.json { render json: status(:ok) }
     end
   end
 
-  def get_data
+  def info
     respond_to do |format|
       format.json { render json: current_cart.info }
     end
@@ -27,6 +27,12 @@ class Ajax::CartController < AjaxController
 
   def find_product
     @product = Product.find(params[:product_id])
+  end
+
+  def status(status_code)
+    case status_code
+    when :ok then { status: 200 }
+    end
   end
 
   def find_cart

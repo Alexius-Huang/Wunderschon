@@ -2,6 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
+  let(:category) { create(:category) }
   describe 'factory' do
     it 'should create a valid record' do
       category = build(:category)
@@ -30,7 +31,11 @@ RSpec.describe Category, type: :model do
 
   describe 'instance methods' do
     describe '.info' do
-      it 'describe CategoryModel.info'
+      let(:category_info) { category.info }
+      it 'should get the info of the category' do
+        expect(category_info[:title]).to       be_kind_of String
+        expect(category_info[:description]).to be_kind_of String
+      end
     end
   end
 end

@@ -54,7 +54,7 @@ RSpec.describe Ajax::CartController, type: :controller do
 
     context 'invalid' do
       # #61 TODO: Rescuing the Invalid Case of the AJAX Request
-      it '#61 should rescue the invalid case of the Ajax#CartController.add_item'
+      # it '#61 should rescue the invalid case of the Ajax#CartController.add_item'
     end
   end
 
@@ -82,11 +82,11 @@ RSpec.describe Ajax::CartController, type: :controller do
 
     context 'invalid' do
       # #61 TODO: Rescuing the Invalid Case of the AJAX Request
-      it '#61 should rescue the invalid case of the Ajax#CartController.delete_item'
+      # it '#61 should rescue the invalid case of the Ajax#CartController.delete_item'
     end
   end
 
-  describe '.get_data' do
+  describe '.info' do
     let(:cart_info) do
       {
         'total_price' => cart.total_price,
@@ -97,7 +97,7 @@ RSpec.describe Ajax::CartController, type: :controller do
     end
 
     it 'should at least have certain key data type of the cart' do
-      get :get_data, format: :json, session: { cart: cart_hash }
+      get :info, format: :json, session: { cart: cart_hash }
       body = JSON.parse(response.body)
       expect(body.key?('total_price')).to be_truthy
       expect(body.key?('empty')).to       be_truthy
