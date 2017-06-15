@@ -1,6 +1,6 @@
 let shoppingCartEvent = function() {
   let buttonEventEmitter = (observer) => {
-    $('div#category-show-desktop-version').on('click', 'a.add-cart-item-btn', function(event) {
+    $('.custom-container').on('click', 'a.add-cart-item-btn', function(event) {
       event.preventDefault()
       observer.next($(this))
     })

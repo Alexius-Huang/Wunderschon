@@ -6,7 +6,7 @@
   <%= javascript_pack_tag 'shopping_cart' %>
 <% end %>
 
-<div id="category-show-mobile-version" class="mobile-version col-xs-12 col-sm-12">
+<div id="category-show-mobile-version" class="mobile-version">
   <%= render @category.products %>
 </div>
 
@@ -29,7 +29,8 @@
           <div class="product-block col-lg-6 col-md-6 col-sm-6">
             <%= image_tag fake_image, class: 'product-img' %>
             <div class="product-info">
-              <p><%= product1.title %></p>
+              <p class="product-title"><%= product1.title %></p>
+              <p class="product-price"><%= product1.price %></p>
               <%= link_to fa_icon('shopping-cart'), '#', class: 'add-cart-item-btn', data: { id: product1.id } %>
             </div>
           </div>
@@ -37,7 +38,8 @@
             <div class="product-block col-lg-6 col-md-6 col-sm-6">
               <%= image_tag fake_image, class: 'product-img' %>
               <div class="product-info">
-                <p><%= product2.title %></p>
+                <p class="product-title"><%= product2.title %></p>
+                <p class="product-price"><%= product2.price %></p>
                 <%= link_to fa_icon('shopping-cart'), '#', class: 'add-cart-item-btn', data: { id: product2.id } %>
               </div>
             </div>
