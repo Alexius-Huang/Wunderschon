@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'aasm'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'paranoia', '~> 2.2'
 gem 'settingslogic'

@@ -47,7 +47,9 @@ module.exports = {
       jQuery: 'jquery',
       jquery: 'jquery',
       Rx: 'Rx',
-      PIXI: 'PIXI'
+      PIXI: 'PIXI',
+      axios: 'axios',
+      Axios: 'axios'
     })
   ],
 
@@ -55,7 +57,8 @@ module.exports = {
     alias: {
       jquery: 'jquery/src/jquery',
       Rx: 'rxjs/bundles/Rx',
-      PIXI: 'pixi.js/dist/pixi.min.js'
+      PIXI: 'pixi.js/dist/pixi.min.js',
+      axios: 'axios/dist/axios.min.js'
     },
     extensions: settings.extensions,
     modules: [

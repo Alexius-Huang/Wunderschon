@@ -1,6 +1,9 @@
 <!-- Issue 28: Product UI Design -->
 <div class="product-block col-sm-12 col-xs-12">
   <%= image_tag fake_image, class: 'product-img' %>
-  <p><%= product.title %></p>
-  <p><%= product.description %></p>
+  <div class="product-info">
+    <p class="product-title"><%= product.title %></p>
+    <p class="product-price"><%= product.price %></p>
+  </div>
+  <%= link_to fa_icon('shopping-cart'), '#', class: 'add-cart-item-btn', data: { id: product.id } %>
 </div>
