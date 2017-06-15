@@ -1,24 +1,32 @@
-let shoppingCartEvent = function() {
-  let buttonEventEmitter = (observer) => {
-    $('.custom-container').on('click', 'a.add-cart-item-btn', function(event) {
-      event.preventDefault()
-      observer.next($(this))
-    })
-  }
-  let getProductId = el => el.data('id')
-  let addCartItem = (productId) => Axios.post('/ajax/cart/add_product.json', { product_id: productId })
-  let resolved = (request) => {
-    request.then((response) => {
-      /* Response Here */
-      console.log(response.data)
-    });
-  }
+import React from 'react'
+import ReactDOM from 'react-dom'
+import ShoppingCart from './components/shopping_cart'
 
-  let source = Rx.Observable.create(buttonEventEmitter)
-  source
-    .map(getProductId)
-    .map(addCartItem)
-    .subscribe(resolved)
+const shoppingCartEvent = function() {
+  /* Drag and Drop Event for ShoppingCartIcon */
+  const shoppingCart = $('#shopping-cart > .shopping-cart > .shopping-cart-icon')[0]
+  const body = document.body
+
+  const mouseDown = Rx.Observable.fromEvent(shoppingCart, 'mousedown')
+  const mouseUp =   Rx.Observable.fromEvent(body, 'mouseup')
+  const mouseMove = Rx.Observable.fromEvent(body, 'mousemove')
+
+  mouseDown
+    .map(event => mouseMove.takeUntil(mouseUp))
+    .concatAll()
+    .map(event => ({ x: event.clientX, y: event.clientY }))
+    .subscribe(pos => {
+      /* Consult categories/shopping_cart.scss */
+      shoppingCart.style.left = pos.x - 40 + 'px'
+      shoppingCart.style.top  = pos.y - 40 + 'px'
+    })
 }
 
 $(document).on('turbolinks:load', shoppingCartEvent)
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(
+    <ShoppingCart name="React" />,
+    $('div#shopping-cart')[0]
+  )
+})

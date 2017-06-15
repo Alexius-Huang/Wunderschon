@@ -13,7 +13,7 @@
     <%= yield(:js) %>
   </head>
 
-  <body>
+  <body class="unselectable">
     <%= render 'shared/navbar' unless @without_navbar %>
     <% if @backend %>
       <%= render 'backend/backend' %>
