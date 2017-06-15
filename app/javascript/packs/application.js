@@ -10,6 +10,7 @@
 import jQuery from 'jquery'
 import Rx from 'Rx'
 import PIXI from 'PIXI'
+import Axios from 'axios'
 
 window.jQuery = jQuery
 

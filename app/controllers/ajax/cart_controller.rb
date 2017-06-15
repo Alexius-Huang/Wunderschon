@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 class Ajax::CartController < AjaxController
+  skip_before_action :verify_authenticity_token
   before_action :find_product, :find_cart, except: %i[info]
   after_action  :set_cart!, except: %i[info]
 
