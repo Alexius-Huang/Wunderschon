@@ -7,14 +7,14 @@ class Ajax::CartController < AjaxController
   def add_product
     @current_cart.add_item(@product, params[:quantity] || 1)
     respond_to do |format|
-      format.json { render json: status(:ok) }
+      format.json { render json: status(:ok).merge({ product: @product.info }) }
     end
   end
 
   def delete_product
     @current_cart.delete_item(@product, params[:quantity] || 1)
     respond_to do |format|
-      format.json { render json: status(:ok) }
+      format.json { render json: status(:ok).merge({ product: @product.info }) }
     end
   end
 

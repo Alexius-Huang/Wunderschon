@@ -1,6 +1,7 @@
 #shopping-cart > .shopping-cart {
   .shopping-cart-icon {
     position: fixed;
+    cursor: pointer;
     width: 80px;
     height: 80px;
     right: 50px;
@@ -29,11 +30,49 @@
       bottom: -5pt;
       color: white;
       background-color: rgb(255, 50, 50);
-      border-radius: 3pt;      
+      border-radius: 3pt;
     }
   }
   .shopping-cart-icon:hover {
     background-color: rgb(50, 50, 50);
     transition: .25s;
+  }
+  .shopping-cart-message {
+    position: fixed;
+    cursor: pointer;
+    display: none;
+    width: 100vw;
+    height: 50pt;
+    text-align: center;
+    top: 75pt;
+    left: 0;
+    p {
+      position: relative;
+      display: inline-block;
+      margin: 0 auto;
+      line-height: 50pt;
+      background-color: rgb(92, 184, 92);
+      padding: 0 15pt;
+      color: white;
+    }
+  }
+  .shopping-cart-wrapper {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 550pt;
+    height: 500pt;
+    margin-left: -275pt;
+    margin-top: -250pt;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #shopping-cart {
+    .shopping-cart-icon {
+      display: none;
+    }
   }
 }

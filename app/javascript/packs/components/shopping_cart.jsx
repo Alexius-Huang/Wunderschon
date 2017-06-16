@@ -1,24 +1,34 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-// import Axios from 'axios'
-import ShoppingCartIcon from './shopping_cart/shopping_cart_icon'
+import ReactDOM from 'react-dom'
+import ShoppingCartIcon from './shopping_cart/icon'
+import ShoppingCartMessage from './shopping_cart/message'
+import ShoppingCartWrapper from './shopping_cart/wrapper'
+
+const Events = {
+  'ADD_CART_ITEM': 'ADD_CART_ITEM'
+}
 
 class ShoppingCart extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      itemCount: 0
+      totalPrice: 0,
+      empty: true,
+      itemCount: 0,
+      items: [],
+      message: ''
     }
-    this.setupAddProductToCartEvent();
+    this.setupAddCartItemEvent();
   }
-  
+
   componentWillMount() {
     this.getCartInfo().then(response => {
-      this.setState({ itemCount: response.data.item_count })
+      const { total_price: totalPrice, empty: empty, items: items, item_count: itemCount } = response.data;
+      this.setState({ totalPrice: totalPrice, empty: empty, itemCount: itemCount, items: items })
     })
   }
 
-  setupAddProductToCartEvent(url = '/ajax/cart/add_product.json') {
+  setupAddCartItemEvent(url = '/ajax/cart/add_product.json') {
     let buttonEventEmitter = (observer) => {
       $('.custom-container').on('click', 'a.add-cart-item-btn', function(event) {
         event.preventDefault()
@@ -29,10 +39,8 @@ class ShoppingCart extends React.Component {
     let addCartItem = (productId) => Axios.post(url, { product_id: productId })
     let resolved = (request) => {
       request.then((response) => {
-        /* Response Here */
-        if (response.data.status === 200) {
-          this.updateCartInfo();
-        }
+        let { status, product } = response.data
+        if (status === 200) this.updateCart('ADD_CART_ITEM', product)
       })
     }
 
@@ -47,27 +55,53 @@ class ShoppingCart extends React.Component {
     return Axios.get(url)
   }
 
-  updateCartInfo() {
+  productAddedMessage(product) {
+    return `${product.title} has been added to cart!`
+  }
+
+  updateCart(event, ...params) {
     this.getCartInfo().then(response => {
-      this.setState({ itemCount: response.data.item_count })
+      const { total_price: totalPrice, empty: empty, items: items, item_count: itemCount } = response.data;
+      switch(Events[event]) {
+        case 'ADD_CART_ITEM':
+          const product = params[0]
+          this.setState({
+            totalPrice: totalPrice,
+            empty: empty,
+            itemCount: itemCount,
+            items: items,
+            message: this.productAddedMessage(product)
+          })
+          break;
+        default:
+          this.setState({
+            totalPrice: totalPrice,
+            empty: empty,
+            itemCount: itemCount,
+            items: items,
+          })
+      }
     })
   }
 
   render() {
     return (
       <div className="shopping-cart">
-        <ShoppingCartIcon itemCount={this.state.itemCount} />
+        <ShoppingCartMessage
+          message={this.state.message}
+        />
+        <ShoppingCartIcon
+          itemCount={this.state.itemCount}
+        />
+        <ShoppingCartWrapper
+          totalPrice={this.state.totalPrice}
+          empty={this.state.empty}
+          itemCount={this.state.itemCount}
+          items={this.state.items}
+        />
       </div>
     )
   }
 }
-
-// Hello.defaultProps = {
-//   name: 'David'
-// }
-
-// Hello.propTypes = {
-//   name: PropTypes.string
-// }
 
 export default ShoppingCart
