@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Roboto+Mono:100,400' %>
     <%= yield(:css) %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag    'application' %>
     <%= yield(:js) %>
   </head>

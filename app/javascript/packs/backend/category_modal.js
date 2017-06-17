@@ -23,4 +23,3 @@ let modalEvent = function() {
   modalRejection.subscribe(closeModal)
 }
 $(document).ready(modalEvent)
-$(document).on('turbolinks:load', modalEvent)

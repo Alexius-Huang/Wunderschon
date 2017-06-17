@@ -30,7 +30,7 @@ const shoppingCartEvent = function() {
   })
 }
 
-$(document).on('turbolinks:load', shoppingCartEvent)
+$(document).ready(shoppingCartEvent)
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(

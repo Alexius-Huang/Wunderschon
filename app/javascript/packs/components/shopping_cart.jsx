@@ -5,20 +5,16 @@ import ShoppingCartMessage from './shopping_cart/message'
 import ShoppingCartWrapper from './shopping_cart/wrapper'
 
 const Events = {
-  'ADD_CART_ITEM': 'ADD_CART_ITEM'
+  'ADD_CART_ITEM': 'ADD_CART_ITEM',
+  'CHECKOUT': 'CHECKOUT'
 }
 
 class ShoppingCart extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      totalPrice: 0,
-      empty: true,
-      itemCount: 0,
-      items: [],
-      message: ''
-    }
-    this.setupAddCartItemEvent();
+    this.state = { totalPrice: 0, empty: true, itemCount: 0, items: [], message: '' }
+    this.setupAddCartItemEvent()
+    this.handleCheckoutCartOrder = this.handleCheckoutCartOrder.bind(this)
   }
 
   componentWillMount() {
@@ -59,6 +55,10 @@ class ShoppingCart extends React.Component {
     return `${product.title} has been added to cart!`
   }
 
+  handleCheckoutCartOrder(bool) {
+    if (bool) { this.updateCart('CHECKOUT') }
+  }
+
   updateCart(event, ...params) {
     this.getCartInfo().then(response => {
       const { total_price: totalPrice, empty: empty, items: items, item_count: itemCount } = response.data;
@@ -72,6 +72,8 @@ class ShoppingCart extends React.Component {
             items: items,
             message: this.productAddedMessage(product)
           })
+          break;
+        case 'CHECKOUT':
           break;
         default:
           this.setState({
@@ -98,6 +100,7 @@ class ShoppingCart extends React.Component {
           empty={this.state.empty}
           itemCount={this.state.itemCount}
           items={this.state.items}
+          checkoutCartOrder={this.handleCheckoutCartOrder}
         />
       </div>
     )

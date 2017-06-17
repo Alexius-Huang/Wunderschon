@@ -29,7 +29,6 @@ let asideNavbarEvent = function() {
 }
 
 $(document).ready(asideNavbarEvent)
-$(document).on('turbolinks:load', asideNavbarEvent)
 
 function $navbar(version) {
   switch(version) {

@@ -10,7 +10,7 @@
     text-align: center;
     border-radius: 50%;
     transition: .25s;
-    z-index: 5;
+    z-index: 2;
     span.fa-shopping-cart {
       display: inline-block;
       width: 100%;
@@ -46,6 +46,7 @@
     text-align: center;
     top: 75pt;
     left: 0;
+    z-index: 3;
     p {
       position: relative;
       display: inline-block;
@@ -65,7 +66,83 @@
     height: 500pt;
     margin-left: -275pt;
     margin-top: -250pt;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.85);
+    box-sizing: border-box;
+    .shopping-cart-header {
+      height: 40pt;
+      line-height: 40pt;
+      padding: 0 20pt;
+      background-color: #333;
+      color: white;
+    }
+    .shopping-cart-body {
+      height: 420pt;
+      overflow-y: scroll;
+      .shopping-cart-caption {
+        .row {
+          margin: 0;
+          padding: 0;
+          color: #333;
+          height: 30pt;
+          border-bottom: 2pt solid #333;
+          div {
+            text-align: center;
+            height: 30pt;
+            line-height: 30pt;
+          }
+        }
+      }
+      .shopping-cart-item {
+        font-size: 0;
+        .row {
+          margin: 0;
+          padding: 0;
+          color: #333;
+          height: 75pt;
+          .item-img {
+            padding: 0;
+            text-align: center;
+            img {
+              margin: 0 auto;
+              max-width: 100%;
+              max-height: 75pt;
+            }
+          }
+          .item-info {
+            height: 75pt;
+            span {
+              font-size: 10pt;
+              // width: 80%;
+              display: inline-block;
+              vertical-align: middle;
+            }
+          }
+          .item-info:before {
+            content: '';
+            vertical-align: middle;
+            height: 100%;
+            width: 0;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .shopping-cart-footer {
+      background-color: #333;
+      height: 40pt;
+      line-height: 40pt;
+      #checkout-btn {
+        padding: 0 10pt;
+        border: 0;
+        color: white;
+        transition: .25s;
+      }
+      #checkout-btn:hover {
+        background-color: white;
+        color: #333;
+        transition: .25s;
+      }
+    }
   }
 }
 
