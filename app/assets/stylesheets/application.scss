@@ -65,6 +65,7 @@ select.disabled {
   color: #888;
   background-color: #222 !important;
 }
+a, button { outline: none; }
 .btn-default {
   background-color: transparent;
   color: #aaa;
@@ -104,7 +105,7 @@ select.disabled {
 }
 
 .unselectable {
-  -webkit-user-select: none; /* Chrome/Safari */        
+  -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
 }

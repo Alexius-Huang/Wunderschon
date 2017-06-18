@@ -1,0 +1,199 @@
+#shopping-cart > .shopping-cart {
+  .shopping-cart-icon {
+    position: fixed;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    right: 50px;
+    bottom: 50px;
+    background-color: rgba(50, 50, 50, 0.5);
+    text-align: center;
+    border-radius: 50%;
+    transition: background-color .25s;
+    z-index: 2;
+    span.fa-shopping-cart {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 80px;
+      font-size: 50px;
+    }
+    span.item-count-tag {
+      display: inline-block;
+      width: 20pt;
+      height: 20pt;
+      font-size: 10pt;
+      line-height: 20pt;
+      position: absolute;
+      left: -5pt;
+      bottom: -5pt;
+      color: white;
+      background-color: rgb(255, 50, 50);
+      border-radius: 3pt;
+    }
+  }
+  .shopping-cart-icon:hover {
+    background-color: rgb(50, 50, 50);
+    transition: background-color .25s;
+  }
+  .shopping-cart-message {
+    position: fixed;
+    cursor: pointer;
+    display: none;
+    width: 100vw;
+    height: 50pt;
+    text-align: center;
+    top: 75pt;
+    left: 0;
+    z-index: 3;
+    p {
+      position: relative;
+      display: inline-block;
+      margin: 0 auto;
+      line-height: 50pt;
+      background-color: rgb(92, 184, 92);
+      padding: 0 15pt;
+      color: white;
+    }
+  }
+  .shopping-cart-wrapper {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 550pt;
+    height: 500pt;
+    margin-left: -275pt;
+    margin-top: -250pt;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-sizing: border-box;
+    .close-shopping-cart-btn {
+      cursor: pointer;
+      background-color: #333;
+      display: inline-block;
+      position: absolute;
+      width: 24pt;
+      height: 24pt;
+      right: -12pt;
+      top: -12pt;
+      line-height: 24pt;
+      text-align: center;
+      font-size: 16pt;
+      color: white;
+      border-radius: 50%;
+      animation: RotateClockwise .25s;
+    }
+    .close-shopping-cart-btn:hover {
+      animation: RotateCounterclockwise .25s;
+    }
+    .shopping-cart-header {
+      height: 40pt;
+      line-height: 40pt;
+      padding: 0 20pt;
+      background-color: #333;
+      color: white;
+    }
+    .shopping-cart-body {
+      height: 420pt;
+      overflow-y: scroll;
+      .shopping-cart-caption {
+        .row {
+          margin: 0;
+          padding: 0;
+          color: #333;
+          height: 30pt;
+          border-bottom: 2pt solid #333;
+          div {
+            text-align: center;
+            height: 30pt;
+            line-height: 30pt;
+          }
+        }
+      }
+      .shopping-cart-item {
+        font-size: 0;
+        .row {
+          margin: 0;
+          padding: 0;
+          color: #333;
+          height: 75pt;
+          .item-img {
+            padding: 0;
+            text-align: center;
+            img {
+              margin: 0 auto;
+              max-width: 100%;
+              max-height: 75pt;
+            }
+          }
+          .item-info {
+            height: 75pt;
+            span {
+              font-size: 10pt;
+              display: inline-block;
+              vertical-align: middle;
+            }
+          }
+          .item-info:before {
+            content: '';
+            vertical-align: middle;
+            height: 100%;
+            width: 0;
+            display: inline-block;
+          }
+          .shopping-cart-quantity-field {
+            span.add-quantity-btn,
+            span.deduct-quantity-btn {
+              padding: 5pt;
+              border-radius: 2pt;
+              border: 1pt dashed #333;
+              transition: .25s;
+            }
+            span.add-quantity-btn:hover,
+            span.deduct-quantity-btn:hover {
+              background-color: #333;
+              color: #ddd;
+              transition: .25s;
+            }
+            span.add-quantity-btn.disabled,
+            span.deduct-quantity-btn.disabled {
+              pointer-events: none;
+              cursor: wait;
+              background-color: red !important;
+            }
+          }
+        }
+      }
+    }
+    .shopping-cart-footer {
+      background-color: #333;
+      height: 40pt;
+      line-height: 40pt;
+      position: relative;
+      #checkout-btn {
+        position: absolute;
+        // white-space: nowrap;
+        right: 0;
+        top: 0;
+        padding: 0 25px;
+        border: 0;
+        color: white;
+        transition: .25s;
+      }
+      #checkout-btn:hover {
+        background-color: white;
+        color: #333;
+        transition: .25s;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #shopping-cart {
+    .shopping-cart-icon {
+      display: none;
+    }
+  }
+}

@@ -13,6 +13,7 @@ class Category < ApplicationRecord
 
   def info
     {
+      id: id,
       title: title,
       description: description
     }

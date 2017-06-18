@@ -33,6 +33,7 @@ RSpec.describe Category, type: :model do
     describe '.info' do
       let(:category_info) { category.info }
       it 'should get the info of the category' do
+        expect(category_info[:id]).to          be_kind_of Integer
         expect(category_info[:title]).to       be_kind_of String
         expect(category_info[:description]).to be_kind_of String
       end
