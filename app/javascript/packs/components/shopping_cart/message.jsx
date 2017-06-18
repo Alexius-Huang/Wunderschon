@@ -13,6 +13,11 @@ class ShoppingCartMessage extends React.Component {
     message: ''
   }
 
+  trigger() {
+    this.triggerMessageFadeEffect()
+    this.setupCloseMessageEvent()
+  }
+
   setupCloseMessageEvent($message = $('.shopping-cart-message')) {
     const source = Rx.Observable.fromEvent($message[0], 'click')
     source.subscribe(() => {
@@ -21,11 +26,6 @@ class ShoppingCartMessage extends React.Component {
         this.disableTimeout()
       }
     })
-  }
-
-  componentWillUpdate() {
-    this.triggerMessageFadeEffect()
-    this.setupCloseMessageEvent()
   }
 
   triggerMessageFadeEffect($message = $('.shopping-cart-message')) {
@@ -53,7 +53,7 @@ class ShoppingCartMessage extends React.Component {
 }
 
 ShoppingCartMessage.propTypes = {
-  message: PropTypes.string
+  message: PropTypes.string,
 }
 
 export default ShoppingCartMessage

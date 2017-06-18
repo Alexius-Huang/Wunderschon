@@ -75,6 +75,7 @@ RSpec.describe Product, type: :model do
     describe '.info' do
       let(:product_info) { product.info }
       it 'it should get the info of the product' do
+        expect(product_info[:id]).to          be_kind_of Integer
         expect(product_info[:title]).to       be_kind_of String
         expect(product_info[:description]).to be_kind_of String
         expect(product_info[:price]).to       be_kind_of Integer

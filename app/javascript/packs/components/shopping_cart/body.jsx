@@ -6,12 +6,22 @@ import ShoppingCartCaption from './caption'
 class ShoppingCartBody extends React.Component {
   constructor(props) {
     super(props)
+    this.addQuantity = this.addQuantity.bind(this)
+    this.deductQuantity = this.deductQuantity.bind(this)
   }
 
   static defaultProps = {
     items: [],
     empty: true
   };
+
+  addQuantity(productId, quantity = 1) {
+    if (productId) { this.props.addQuantity(productId, quantity) }
+  }
+
+  deductQuantity(productId, quantity = 1) {
+    if (productId) { this.props.deductQuantity(productId, quantity) }
+  }
 
   render() {
     const renderCartItems = this.props.items.map((item, index) => 
@@ -21,6 +31,8 @@ class ShoppingCartBody extends React.Component {
         quantity={item.quantity}
         price={item.price}
         totalPrice={item.total_price}
+        addQuantity={this.addQuantity}
+        deductQuantity={this.deductQuantity}
       />
     )
     return (

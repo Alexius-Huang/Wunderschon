@@ -9,7 +9,7 @@
     background-color: rgba(50, 50, 50, 0.5);
     text-align: center;
     border-radius: 50%;
-    transition: .25s;
+    transition: background-color .25s;
     z-index: 2;
     span.fa-shopping-cart {
       display: inline-block;
@@ -35,7 +35,7 @@
   }
   .shopping-cart-icon:hover {
     background-color: rgb(50, 50, 50);
-    transition: .25s;
+    transition: background-color .25s;
   }
   .shopping-cart-message {
     position: fixed;
@@ -68,6 +68,25 @@
     margin-top: -250pt;
     background-color: rgba(255, 255, 255, 0.85);
     box-sizing: border-box;
+    .close-shopping-cart-btn {
+      cursor: pointer;
+      background-color: #333;
+      display: inline-block;
+      position: absolute;
+      width: 24pt;
+      height: 24pt;
+      right: -12pt;
+      top: -12pt;
+      line-height: 24pt;
+      text-align: center;
+      font-size: 16pt;
+      color: white;
+      border-radius: 50%;
+      animation: RotateClockwise .25s;
+    }
+    .close-shopping-cart-btn:hover {
+      animation: RotateCounterclockwise .25s;
+    }
     .shopping-cart-header {
       height: 40pt;
       line-height: 40pt;
@@ -112,7 +131,6 @@
             height: 75pt;
             span {
               font-size: 10pt;
-              // width: 80%;
               display: inline-block;
               vertical-align: middle;
             }
@@ -124,6 +142,27 @@
             width: 0;
             display: inline-block;
           }
+          .shopping-cart-quantity-field {
+            span.add-quantity-btn,
+            span.deduct-quantity-btn {
+              padding: 5pt;
+              border-radius: 2pt;
+              border: 1pt dashed #333;
+              transition: .25s;
+            }
+            span.add-quantity-btn:hover,
+            span.deduct-quantity-btn:hover {
+              background-color: #333;
+              color: #ddd;
+              transition: .25s;
+            }
+            span.add-quantity-btn.disabled,
+            span.deduct-quantity-btn.disabled {
+              pointer-events: none;
+              cursor: wait;
+              background-color: red !important;
+            }
+          }
         }
       }
     }
@@ -131,8 +170,13 @@
       background-color: #333;
       height: 40pt;
       line-height: 40pt;
+      position: relative;
       #checkout-btn {
-        padding: 0 10pt;
+        position: absolute;
+        // white-space: nowrap;
+        right: 0;
+        top: 0;
+        padding: 0 25px;
         border: 0;
         color: white;
         transition: .25s;

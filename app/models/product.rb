@@ -31,6 +31,7 @@ class Product < ApplicationRecord
 
   def info
     {
+      id: id,
       title: title,
       description: description,
       price: price,

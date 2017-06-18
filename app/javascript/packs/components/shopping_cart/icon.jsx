@@ -17,9 +17,9 @@ class ShoppingCartIcon extends React.Component {
     if (isDragging) return
     const $wrapper = $('.shopping-cart-wrapper')
     if ($wrapper.css('display') == 'none') {
-      $wrapper.css('display', 'block')
+      $wrapper.fadeIn()
     } else {
-      $wrapper.css('display', 'none')
+      $wrapper.fadeOut()
     }
   }
 

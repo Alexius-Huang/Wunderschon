@@ -13,6 +13,10 @@ class ShoppingCartFooter extends React.Component {
 
   handleCheckOutButtonClick(event) {
     event.preventDefault()
+    // const $footer = $('.shopping-cart-footer')
+    // const $button = $(event.target)
+    // const animatePosition = $footer.outerWidth() - $button.outerWidth()
+    // $button.animate({ right: animatePosition })
     this.props.checkoutCartOrder(true)
   }
 
@@ -20,10 +24,10 @@ class ShoppingCartFooter extends React.Component {
     return (
       <div className="shopping-cart-footer">
         <button
-          className="pull-right bg-danger"
+          className="bg-danger"
           id="checkout-btn"
           onClick={this.handleCheckOutButtonClick}
-        >Checkout (${this.props.totalPrice})</button>
+        >Checkout ${this.props.totalPrice}</button>
       </div>
     )
   }

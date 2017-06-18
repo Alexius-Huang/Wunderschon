@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ShoppingCart from './components/shopping_cart'
+import ShoppingCart from './components/shopping-cart'
 
 const shoppingCartEvent = function() {
   /* Drag and Drop Event for ShoppingCartIcon */
@@ -9,7 +9,7 @@ const shoppingCartEvent = function() {
   const body = document.body
 
   const mouseDown = Rx.Observable.fromEvent(shoppingCart, 'mousedown')
-  const mouseUp =   Rx.Observable.fromEvent(body, 'mouseup')
+  const mouseUp =   Rx.Observable.fromEvent(shoppingCart, 'mouseup')
   const mouseMove = Rx.Observable.fromEvent(body, 'mousemove')
 
   mouseDown

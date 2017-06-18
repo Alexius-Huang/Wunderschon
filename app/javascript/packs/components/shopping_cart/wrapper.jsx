@@ -8,6 +8,8 @@ class ShoppingCartWrapper extends React.Component {
   constructor(props) {
     super(props)
     this.checkoutCartOrder = this.checkoutCartOrder.bind(this)
+    this.addQuantity = this.addQuantity.bind(this)
+    this.deductQuantity = this.deductQuantity.bind(this)
   }
 
   static defaultProps = {
@@ -21,9 +23,27 @@ class ShoppingCartWrapper extends React.Component {
     if (bool) { this.props.checkoutCartOrder(true) }
   }
 
+  handleCloseShoppingCart(event) {
+    event.preventDefault()
+    const $wrapper = $('.shopping-cart-wrapper')
+    $wrapper.fadeOut()
+  }
+
+  addQuantity(productId, quantity = 1) {
+    if (productId) { this.props.addQuantity(productId, quantity) }
+  }
+
+  deductQuantity(productId, quantity = 1) {
+    if (productId) { this.props.deductQuantity(productId, quantity) }
+  }
+
   render() {
     return (
       <div className='shopping-cart-wrapper'>
+        <span
+          className="close-shopping-cart-btn fa fa-times"
+          onClick={this.handleCloseShoppingCart}
+        ></span>
         <ShoppingCartHeader
           totalPrice={this.props.totalPrice}
           itemCount={this.props.itemCount}
@@ -31,6 +51,8 @@ class ShoppingCartWrapper extends React.Component {
         <ShoppingCartBody
           empty={this.props.empty}
           items={this.props.items}
+          addQuantity={this.addQuantity}
+          deductQuantity={this.deductQuantity}
         />
         <ShoppingCartFooter
           totalPrice={this.props.totalPrice}

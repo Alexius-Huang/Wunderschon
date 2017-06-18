@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ShoppingCartQuantityField from './quantity-field'
 
 class ShoppingCartItem extends React.Component {
   constructor(props) {
     super(props)
+    this.addQuantity = this.addQuantity.bind(this)
+    this.deductQuantity = this.deductQuantity.bind(this)
   }
 
   static defaultProps = {
@@ -11,6 +14,14 @@ class ShoppingCartItem extends React.Component {
     quantity: 0,
     price: 0,
     totalPrice: 0
+  }
+
+  addQuantity(productId, quantity = 1) {
+    if (productId) { this.props.addQuantity(productId, quantity) }
+  }
+
+  deductQuantity(productId, quantity = 1) {
+    if (productId) { this.props.deductQuantity(productId, quantity) }
   }
 
   render() {
@@ -27,7 +38,12 @@ class ShoppingCartItem extends React.Component {
             <span>{this.props.product.price}</span>
           </div>
           <div className="item-info text-center col-xl-2 col-lg-2 col-md-2 col-sm-2">
-            <span>{this.props.quantity}</span>
+            <ShoppingCartQuantityField
+              productId={this.props.product.id}
+              quantity={this.props.quantity}
+              addQuantity={this.addQuantity}
+              deductQuantity={this.deductQuantity}
+            />
           </div>
           <div className="item-info text-center col-xl-2 col-lg-2 col-md-2 col-sm-2">
             <span>{this.props.totalPrice}</span>
