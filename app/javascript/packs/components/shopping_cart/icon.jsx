@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ShoppingCartMessage from './message'
 
 class ShoppingCartIcon extends React.Component {
   constructor(props) {

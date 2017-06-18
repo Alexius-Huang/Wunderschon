@@ -255,5 +255,173 @@ For more information, you can read:
 ## Node Packages Info
 
 - [`jQuery`](https://github.com/jquery/jquery) - Common but powerful JS library for fundamental DOM manipulations, events, traversal, animation and simple AJAX
+- [`React.js`](https://facebook.github.io/react/) - Component based dynamic, reactive and declarative UI interface design
+- [`axios`](https://github.com/mzabriskie/axios) - Promise based HTTP client for browser and NodeJS
 - [`Rx.js`](https://github.com/ReactiveX/rxjs) - Powerful reactive programming with observable patterns implemented in JavaScript
 - [`PIXI.js`](https://github.com/pixijs/pixi.js) - Super fast HTML 5 2D rendering engine that uses webGL with canvas fallback
+
+
+## Using ReactJS in Rails with Webpacker
+### Installation
+
+Just run the webpacker built-in command and it'll serve you well:
+
+```
+$ bin/rails webpacker:install:react
+```
+
+It will automatically configure the `package.json`, `.babelrc` and install dependencies including the `babel-preset-react` which enables you to use `JSX` syntax during development.
+
+Additionally, you should also install `prop-types` package using Yarn:
+
+```
+$ yarn add prop-types
+```
+
+Because [`React.PropTypes` is deprecated as of React version 15.5](https://facebook.github.io/react/warnings/dont-call-proptypes.html), so if you want to use `type checking` (and it is highly recommended), you should also install the `prop-types` library instead.
+
+### Hello World Example
+
+After installation, you can manage and develop React component in `app/javascript/packs/components/` directory. To create a component, for example, the `hello-world` program, create a new file called `hello-world.jsx` and below is the example code:
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
+
+/* Declare Your Component */
+class HelloWorld extends React.Component {
+  constructor(props) {
+    super(props)
+    /* You can initialize your states here */
+    // this.states = { ... }
+  }
+
+  static defaultProps = {
+    appName: 'Hello World!'
+  }; // <----- Do not forget the semicolon!
+
+  /* You can declare life-cycle methods in this component declaration block */
+  // componentWillMount() { ... }
+  // componentDidMount() { ... }
+  // shouldComponentReceiveProps() { ... }
+  // ... other life-cycle methods
+
+  render() {
+    return (
+      <div className="hello-world">
+        {this.props.appName}
+      </div>
+    )
+  }
+}
+
+/* Checking Props' Types */
+HelloWorld.propTypes = {
+  appName: PropTypes.string.isRequired
+}
+
+/* Render Your Component */
+// You should have <div id="app"></div> in your HTML file
+ReactDOM.render(
+  <HelloWorld />,
+  document.getElementById('app') 
+)
+```
+
+### Nested Components
+
+For example, to nest another component in our `HelloWorld` component, let's create another directory which is called `components/hello_world/` and include another component file `inner-component.jsx`. It should use the `export default` to **export our component as a module**:
+
+```jsx
+import React from 'react'
+import PropTypes from 'prop-types'
+
+class InnerComponent extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <div className="inner-component">
+        Hello, This is the InnerComponent!
+      </div>
+    )
+  }
+}
+
+export default InnerComponent
+```
+
+And then include the module to our root component file. Using JSX syntax to use the component in the `render` method:
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
+import InnerComponent from './hello_world/inner-component'
+
+class HelloWorld extends React.Component {
+  /* ... Omitted ... */
+  render() {
+    return (
+      <div className="hello-world">
+        <InnerComponent />
+      </div>
+    )
+  }
+}
+```
+
+### Using `props` to Transfer Date From Parent to Child Component
+(Drafting...)
+
+### Using `key` to Render List-alike Component Structure
+(Drafting...)
+
+### Using `state` to Update and Mutate the State of the Data
+(Drafting...)
+
+### Event Handling
+(Drafting...)
+
+### Using `refs` to Reference Child Component from Parent
+(Drafting...)
+
+### Wunderschön Shopping Cart Design
+
+Using [`React.js`](https://facebook.github.io/react/) to construct the shopping cart component UI interface. Its structure is presented below:
+
+```
+- shopping-cart (Root Component)
+  - message
+  - icon
+  - wrapper
+    - header
+    - body
+      - caption
+      - *item
+        - quantity-field
+    - footer
+
+Hint: * means list-like components
+```
+
+(Drafting...)
+
+## Axios - HTTP Client from Browsers & NodeJS
+
+### Installation
+
+(Drafting...)
+### Basic Usage
+
+(Drafting...)
+## RxJS - Reactive Programming using Observable
+
+### Installation
+
+(Drafting...)
+### Basic Usage 
+(Drafting...)
