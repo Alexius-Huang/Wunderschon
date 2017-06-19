@@ -27,7 +27,7 @@ class ShoppingCartFooter extends React.Component {
           className="bg-danger"
           id="checkout-btn"
           onClick={this.handleCheckOutButtonClick}
-        >Checkout ${this.props.totalPrice}</button>
+        ><%= I18n.t('shopping_cart.footer.checkout') %> ${this.props.totalPrice}</button>
       </div>
     )
   }

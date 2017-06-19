@@ -54,7 +54,7 @@ class ShoppingCart extends React.Component {
   }
 
   productAddedMessage(product) {
-    return `${product.title} has been added to cart!`
+    return product.title + " <%= I18n.t('shopping_cart.root.append_to_cart_message') %>"
   }
 
   getCartInfo(url = '/ajax/cart/info.json') {

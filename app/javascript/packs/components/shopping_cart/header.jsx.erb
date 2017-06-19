@@ -16,10 +16,10 @@ class ShoppingCartHeader extends React.Component {
       <div className="shopping-cart-header">
         <div className="row">
           <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-            Shopping Cart
+            <%= I18n.t('shopping_cart.header.app_name') %>
           </div>
           <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 text-right">
-            Total Price: ${this.props.totalPrice}
+            <%= I18n.t('shopping_cart.header.total_price') %> ${this.props.totalPrice}
           </div>
         </div>
       </div>
