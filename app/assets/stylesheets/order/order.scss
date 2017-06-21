@@ -1,0 +1,138 @@
+.order {
+  padding-top: 30pt;
+  .order-light-box {
+    display: none;
+    .order-light-box-wrapper {
+
+    }
+  }
+  .order-progress-indicator {
+    text-align: center;
+    position: relative;
+    span.progress-title {
+      position: absolute;
+      display: inline-block;
+      width: 300px;
+      top: 10pt;
+      font-size: 14pt;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+    .order-progress-indicator-wrapper {
+      display: inline-block;
+      margin: 0 auto;
+      height: 100pt;
+      line-height: 100pt;
+      vertical-align: middle;  
+      .order-progress-icon {
+        display: inline-block;
+        span {
+          display: inline-block;
+          box-sizing: border-box;
+          width: 25pt;
+          height: 25pt;
+          border: 2pt solid #ddd;
+          line-height: 21pt;
+          font-size: 14pt;
+          border-radius: 50%;
+          text-align: center;
+          background-color: #555;
+          color: #ddd;
+          vertical-align: middle;
+        }
+      }
+      .order-progress-icon + .order-progress-icon:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 60pt;
+        height: 2pt;
+        background-color: #555;
+      }
+      .order-progress-icon.active {
+        span {
+          background-color: #ddd;
+          color: #333;
+        }
+      }
+      .order-progress-icon.active + .order-progress-icon.active:before {
+        content: '';
+        background-color: #ddd;
+      }
+    }
+  }
+
+  .order-wrapper {
+    margin: 0 auto;
+    max-width: 700pt;
+    width: 100%;
+    .order-body {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      background-color: #555;
+      .order-body-wrapper {
+        position: relative;
+        width: 9999px;
+        left: 0;
+        .order-section {
+          display: inline-block;
+          float: left;
+          .row {
+            padding: 0;
+            margin: 0;
+            div {
+              padding: 10pt 20pt;
+              input {
+                width: 100%;
+                padding: 5pt;
+                border: 1pt dashed #ddd;
+                background-color: #555;
+              }
+              input:focus {
+                border: 1pt solid #ddd;
+                background-color: #888;
+              }
+            }
+          }
+        }
+      }
+    }
+    .order-footer {
+      width: 100%;
+      background-color: #555;
+      padding: 20pt;
+      text-align: right;
+      button {
+        background-color: #ddd;
+        color: #555;
+      }
+      button:active {}
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .order {
+    .order-progress-indicator {
+      .order-progress-indicator-wrapper {
+        .order-progress-icon + .order-progress-icon:before {
+          width: 30pt;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 767px) {
+  .order {
+    .order-progress-indicator {
+      .order-progress-indicator-wrapper {
+        .order-progress-icon + .order-progress-icon:before {
+          width: 45pt;
+        }
+      }
+    }
+  }
+}

@@ -14,6 +14,11 @@ import Axios from 'axios'
 
 window.jQuery = jQuery
 
+// Support component names relative to this directory:
+var componentRequireContext = require.context('packs/components', true)
+var ReactRailsUJS = require('react_ujs')
+ReactRailsUJS.useContext(componentRequireContext)
+
 $(document).ready(() => {
 	let animating = false
   $('#categories-icon').click(function(event) {
@@ -36,6 +41,8 @@ $(document).ready(() => {
       })
     }
 	})
+
+  ReactRailsUJS.mountComponents()
 })
 
 function castShadow(bool, shadow = '0 5pt 5pt rgba(0, 0, 0, 0.3)') {

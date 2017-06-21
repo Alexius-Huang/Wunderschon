@@ -15,6 +15,7 @@ css_files = %w(
   navbar.scss
   category/show.scss
   category/shopping_cart.scss
+  order/new.scss
   backend.scss
   backend/navbar.scss
   backend/products.scss
