@@ -1,0 +1,30 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+class ShoppingCartFooter extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  static defaultProps = {
+    totalPrice: 0
+  }
+
+  render() {
+    return (
+      <div className="shopping-cart-footer">
+        <a
+          className="bg-danger"
+          id="checkout-btn"
+          href="/orders/checkout"
+        ><%= I18n.t('shopping_cart.footer.checkout') %> ${this.props.totalPrice}</a>
+      </div>
+    )
+  }
+}
+
+ShoppingCartFooter.propTypes = {
+  totalPrice: PropTypes.number.isRequired
+}
+
+export default ShoppingCartFooter

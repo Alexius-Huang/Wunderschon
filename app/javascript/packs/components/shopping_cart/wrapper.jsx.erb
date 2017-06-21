@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ShoppingCartHeader from './header'
-import ShoppingCartBody from './body'
-import ShoppingCartFooter from './footer'
+import ShoppingCartHeader from './header.jsx.erb'
+import ShoppingCartBody from './body.jsx.erb'
+import ShoppingCartFooter from './footer.jsx.erb'
 
 class ShoppingCartWrapper extends React.Component {
   constructor(props) {
     super(props)
-    this.checkoutCartOrder = this.checkoutCartOrder.bind(this)
     this.addQuantity = this.addQuantity.bind(this)
     this.deductQuantity = this.deductQuantity.bind(this)
   }
@@ -18,10 +17,6 @@ class ShoppingCartWrapper extends React.Component {
     itemCount: 0,
     items: []
   };
-
-  checkoutCartOrder(bool) {
-    if (bool) { this.props.checkoutCartOrder(true) }
-  }
 
   handleCloseShoppingCart(event) {
     event.preventDefault()
@@ -56,7 +51,6 @@ class ShoppingCartWrapper extends React.Component {
         />
         <ShoppingCartFooter
           totalPrice={this.props.totalPrice}
-          checkoutCartOrder={this.checkoutCartOrder}
         />
       </div>
     )
@@ -67,8 +61,7 @@ ShoppingCartWrapper.propTypes = {
   totalPrice: PropTypes.number.isRequired,
   empty: PropTypes.bool.isRequired,
   itemCount: PropTypes.number.isRequired,
-  items: PropTypes.array.isRequired,
-  checkoutCartOrder: PropTypes.func.isRequired
+  items: PropTypes.array.isRequired
 }
 
 export default ShoppingCartWrapper

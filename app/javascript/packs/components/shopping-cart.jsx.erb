@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ShoppingCartIcon from './shopping_cart/icon'
-import ShoppingCartMessage from './shopping_cart/message'
-import ShoppingCartWrapper from './shopping_cart/wrapper'
+import ShoppingCartIcon from './shopping_cart/icon.jsx.erb'
+import ShoppingCartMessage from './shopping_cart/message.jsx.erb'
+import ShoppingCartWrapper from './shopping_cart/wrapper.jsx.erb'
 
 const Events = {
   'ADD_CART_ITEM': 'ADD_CART_ITEM',
   'ADD_QUANTITY': 'ADD_QUANTITY',
-  'DEDUCT_QUANTITY': 'DEDUCT_QUANTITY',
-  'CHECKOUT': 'CHECKOUT'
+  'DEDUCT_QUANTITY': 'DEDUCT_QUANTITY'
 }
 
 class ShoppingCart extends React.Component {
@@ -16,7 +15,6 @@ class ShoppingCart extends React.Component {
     super(props)
     this.state = { totalPrice: 0, empty: true, itemCount: 0, items: [], message: '' }
     this.setupAddCartItemEvent()
-    this.handleCheckoutCartOrder = this.handleCheckoutCartOrder.bind(this)
     this.handleAddQuantity = this.handleAddQuantity.bind(this)
     this.handleDeductQuantity = this.handleDeductQuantity.bind(this)
   }
@@ -54,7 +52,7 @@ class ShoppingCart extends React.Component {
   }
 
   productAddedMessage(product) {
-    return `${product.title} has been added to cart!`
+    return product.title + " <%= I18n.t('shopping_cart.root.append_to_cart_message') %>"
   }
 
   getCartInfo(url = '/ajax/cart/info.json') {
@@ -67,13 +65,6 @@ class ShoppingCart extends React.Component {
 
   postDeductProduct(productId, quantity = 1, url = '/ajax/cart/delete_product.json') {
     return Axios.post(url, { product_id: productId, quantity: quantity })
-  }
-
-  handleCheckoutCartOrder(bool) {
-    if (bool) {
-      /* Implement Checkout Action Here */
-      this.updateShoppingCart('CHECKOUT')
-    }
   }
 
   handleAddQuantity(productId, quantity = 1) {
@@ -111,9 +102,7 @@ class ShoppingCart extends React.Component {
           })
           this.refs.message.trigger()
           break;
-        case 'CHECKOUT':
-          break;
-        
+
         /* Default Update Behaviours */
         case 'ADD_QUANTITY':
         case 'DEDUCT_QUANTITY':
@@ -143,7 +132,6 @@ class ShoppingCart extends React.Component {
           empty={this.state.empty}
           itemCount={this.state.itemCount}
           items={this.state.items}
-          checkoutCartOrder={this.handleCheckoutCartOrder}
           addQuantity={this.handleAddQuantity}
           deductQuantity={this.handleDeductQuantity}
         />

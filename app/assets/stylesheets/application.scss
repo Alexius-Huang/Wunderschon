@@ -65,7 +65,8 @@ select.disabled {
   color: #888;
   background-color: #222 !important;
 }
-a, button { outline: none; }
+a, button, a:focus, button:focus { outline: none; }
+a.disabled, button.disabled { pointer-events: none; }
 .btn-default {
   background-color: transparent;
   color: #aaa;
