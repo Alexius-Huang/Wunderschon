@@ -45,8 +45,13 @@
     <div class="navbar-body">
       <ul>
         <li class="brand"><%= t('app_name') %></li>
-        <li class="nav-right m-r-20">Sign In</li>
-        <li class="nav-right">Sign Up</li>
+        <% if user_signed_in? %>
+          <li class="nav-right m-r-20"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+          <li class="nav-right"><%= link_to 'Account', edit_user_registration_path %></li>
+        <% else %>
+          <li class="nav-right m-r-20"><%= link_to 'Sign in', new_user_session_path %></li>
+          <li class="nav-right"><%= link_to 'Sign up', new_user_registration_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
