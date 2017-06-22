@@ -17,7 +17,7 @@ class ShoppingCartFooter extends React.Component {
           className="bg-danger"
           id="checkout-btn"
           href="/orders/checkout"
-        ><%= I18n.t('shopping_cart.footer.checkout') %> ${this.props.totalPrice}</a>
+        >{this.props.translations.footer.checkout} ${this.props.totalPrice}</a>
       </div>
     )
   }

@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ShoppingCartHeader from './header.jsx.erb'
-import ShoppingCartBody from './body.jsx.erb'
-import ShoppingCartFooter from './footer.jsx.erb'
+import ShoppingCartHeader from './header'
+import ShoppingCartBody from './body'
+import ShoppingCartFooter from './footer'
 
 class ShoppingCartWrapper extends React.Component {
   constructor(props) {
     super(props)
     this.addQuantity = this.addQuantity.bind(this)
     this.deductQuantity = this.deductQuantity.bind(this)
+    this.handleCloseShoppingCart = this.handleCloseShoppingCart.bind(this)
   }
 
   static defaultProps = {
@@ -33,6 +34,7 @@ class ShoppingCartWrapper extends React.Component {
   }
 
   render() {
+    const t = this.props.translations
     return (
       <div className='shopping-cart-wrapper'>
         <span
@@ -42,15 +44,18 @@ class ShoppingCartWrapper extends React.Component {
         <ShoppingCartHeader
           totalPrice={this.props.totalPrice}
           itemCount={this.props.itemCount}
+          translations={t}
         />
         <ShoppingCartBody
           empty={this.props.empty}
           items={this.props.items}
           addQuantity={this.addQuantity}
           deductQuantity={this.deductQuantity}
+          translations={t}
         />
         <ShoppingCartFooter
           totalPrice={this.props.totalPrice}
+          translations={t}
         />
       </div>
     )

@@ -89,24 +89,3 @@ zh-TW:
         products:
           create: 無法建立出商品，請檢查是否有錯誤！
           update: 商品「 %{title} 」修改失敗！
-
-  shopping_cart:
-    root:
-      append_to_cart_message: 已加入購物車！
-    message:
-    icon:
-    wrapper:
-    header:
-      app_name: 購物車
-      total_price: 總價格
-    body:
-    caption:
-      img: 商品圖示
-      title: 商品名稱
-      price: 單價
-      quantity: 數量
-      total_price: 總價
-    item:
-    quantity_field:  
-    footer:
-      checkout: 把我買走

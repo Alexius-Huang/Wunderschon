@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ShoppingCartQuantityField from './quantity-field.jsx.erb'
+import ShoppingCartQuantityField from './quantity-field'
 
 class ShoppingCartItem extends React.Component {
   constructor(props) {
@@ -43,6 +43,7 @@ class ShoppingCartItem extends React.Component {
               quantity={this.props.quantity}
               addQuantity={this.addQuantity}
               deductQuantity={this.deductQuantity}
+              translations={this.props.translations}
             />
           </div>
           <div className="item-info text-center col-xl-2 col-lg-2 col-md-2 col-sm-2">

@@ -12,14 +12,15 @@ class ShoppingCartHeader extends React.Component {
   };
 
   render() {
+    const t = this.props.translations
     return (
       <div className="shopping-cart-header">
         <div className="row">
           <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-            <%= I18n.t('shopping_cart.header.app_name') %>
+            {t.header.app_name}
           </div>
           <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 text-right">
-            <%= I18n.t('shopping_cart.header.total_price') %> ${this.props.totalPrice}
+            {t.header.total_price} ${this.props.totalPrice}
           </div>
         </div>
       </div>

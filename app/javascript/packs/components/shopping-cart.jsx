@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ShoppingCartIcon from './shopping_cart/icon.jsx.erb'
-import ShoppingCartMessage from './shopping_cart/message.jsx.erb'
-import ShoppingCartWrapper from './shopping_cart/wrapper.jsx.erb'
+import ShoppingCartIcon from './shopping_cart/icon'
+import ShoppingCartMessage from './shopping_cart/message'
+import ShoppingCartWrapper from './shopping_cart/wrapper'
 
 const Events = {
   'ADD_CART_ITEM': 'ADD_CART_ITEM',
@@ -51,10 +51,6 @@ class ShoppingCart extends React.Component {
       .subscribe(resolved)
   }
 
-  productAddedMessage(product) {
-    return product.title + " <%= I18n.t('shopping_cart.root.append_to_cart_message') %>"
-  }
-
   getCartInfo(url = '/ajax/cart/info.json') {
     return Axios.get(url)
   }
@@ -98,7 +94,7 @@ class ShoppingCart extends React.Component {
             empty: empty,
             itemCount: itemCount,
             items: items,
-            message: this.productAddedMessage(product)
+            message: this.refs.message.productAddedMessage(product)
           })
           this.refs.message.trigger()
           break;
@@ -118,14 +114,17 @@ class ShoppingCart extends React.Component {
   }
 
   render() {
+    const t = JSON.parse(this.props.translations)
     return (
       <div className="shopping-cart">
         <ShoppingCartMessage
           message={this.state.message}
           ref="message"
+          translations={t}
         />
         <ShoppingCartIcon
           itemCount={this.state.itemCount}
+          translations={t}
         />
         <ShoppingCartWrapper
           totalPrice={this.state.totalPrice}
@@ -134,6 +133,7 @@ class ShoppingCart extends React.Component {
           items={this.state.items}
           addQuantity={this.handleAddQuantity}
           deductQuantity={this.handleDeductQuantity}
+          translations={t}
         />
       </div>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ShoppingCartItem from './item.jsx.erb'
-import ShoppingCartCaption from './caption.jsx.erb'
+import ShoppingCartItem from './item'
+import ShoppingCartCaption from './caption'
 
 class ShoppingCartBody extends React.Component {
   constructor(props) {
@@ -33,11 +33,12 @@ class ShoppingCartBody extends React.Component {
         totalPrice={item.total_price}
         addQuantity={this.addQuantity}
         deductQuantity={this.deductQuantity}
+        translations={this.props.translations}
       />
     )
     return (
       <div className="shopping-cart-body">
-        <ShoppingCartCaption />
+        <ShoppingCartCaption translations={this.props.translations} />
         {renderCartItems}
       </div>
     )

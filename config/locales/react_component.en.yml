@@ -1,0 +1,21 @@
+en:
+  shopping_cart:
+    root:
+    message:
+      append_to_cart_message: has added to cart!
+    icon:
+    wrapper:
+    header:
+      app_name: Shopping Cart
+      total_price: Total Price
+    body:
+    caption:
+      img: Image
+      title: Title
+      price: Price
+      quantity: Quantity
+      total_price: Total Price
+    item:
+    quantity_field:
+    footer:
+      checkout: Take me Home ~

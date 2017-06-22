@@ -1,0 +1,21 @@
+zh-TW:
+  shopping_cart:
+    root:
+    message:
+      append_to_cart_message: 已加入購物車！
+    icon:
+    wrapper:
+    header:
+      app_name: 購物車
+      total_price: 總價格
+    body:
+    caption:
+      img: 商品圖示
+      title: 商品名稱
+      price: 單價
+      quantity: 數量
+      total_price: 總價
+    item:
+    quantity_field:  
+    footer:
+      checkout: 把我買走
