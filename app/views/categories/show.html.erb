@@ -4,7 +4,6 @@
 <% end %>
 <%= content_for :js do %>
   <%= javascript_pack_tag 'category_aside_navbar' %>
-  <%= javascript_pack_tag 'shopping_cart' %>
 <% end %>
 
 <div id="category-show-mobile-version" class="mobile-version">
@@ -51,4 +50,4 @@
   </div>
 </div>
 
-<div id="shopping-cart"></div>
+<%= react_component 'shopping-cart' %>
