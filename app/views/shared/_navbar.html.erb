@@ -49,8 +49,7 @@
           <li class="nav-right m-r-20"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
           <li class="nav-right"><%= link_to 'Account', edit_user_registration_path %></li>
         <% else %>
-          <li class="nav-right m-r-20"><%= link_to 'Sign in', new_user_session_path %></li>
-          <li class="nav-right"><%= link_to 'Sign up', new_user_registration_path %></li>
+          <li class="nav-right m-r-20"><%= link_to 'Login', new_user_session_path %></li>
         <% end %>
       </ul>
     </div>
