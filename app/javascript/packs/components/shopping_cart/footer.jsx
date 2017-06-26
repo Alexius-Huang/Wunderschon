@@ -14,7 +14,6 @@ class ShoppingCartFooter extends React.Component {
     return (
       <div className="shopping-cart-footer">
         <a
-          className="bg-danger"
           id="checkout-btn"
           href="/orders/checkout"
         >{this.props.translations.footer.checkout} ${this.props.totalPrice}</a>

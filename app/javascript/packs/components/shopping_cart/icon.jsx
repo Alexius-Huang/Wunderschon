@@ -49,8 +49,10 @@ class ShoppingCartIcon extends React.Component {
     const $wrapper = $('.shopping-cart-wrapper')
     if ($wrapper.css('display') == 'none') {
       $wrapper.fadeIn()
+      $('.shopping-cart-bg').fadeIn();
     } else {
       $wrapper.fadeOut()
+      $('.shopping-cart-bg').fadeOut();
     }
   }
 

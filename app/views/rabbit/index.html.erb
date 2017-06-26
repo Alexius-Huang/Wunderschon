@@ -1,5 +1,5 @@
 <% content_for :js do %>
   <%= javascript_include_tag 'rabbit.js' %>
 <% end %>
-<h1 id="title" class="unselectable">Wunderschön <br> <span>A gorgeous beautiful grounded rabbit <3</span></h1>
-<button id="entry-btn" class="unselectable">Take me home ~ <3</button>
+<h1 id="title">Wunderschön <br> <span>A gorgeous beautiful grounded rabbit <3</span></h1>
+<%= link_to 'Take me home ~ <3', category_path(5), id: 'entry-btn' %>

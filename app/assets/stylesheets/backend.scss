@@ -1,3 +1,15 @@
+/* Main Color Scheme */
+$outer-space: #424B54;
+$roman-silver: #7F9296;
+$white: #ffffff;
+$pale-chestnut: #E2B4BD;
+$sea-foam-greeen: #A9E5BB;
+
+$bootstrap-primary: rgba(2,117,216, 1);
+$bootstrap-success: rgb(92, 184, 92);
+$bootstrap-danger: rgb(217, 83, 79);
+$bootstrap-warning: rgb(240, 173, 78);
+
 .backend-container {
   max-width: 100vw;
   margin-left: 200pt;
@@ -6,7 +18,7 @@
 .backend-panel {
   margin-bottom: 20pt;
   background-color: #333;
-  border-bottom: 3pt solid #555;
+  border-bottom: 3pt solid $roman-silver;
   transition: .25s;
 }
 .backend-notice {
@@ -69,7 +81,7 @@ input#error-msg:checked   ~ .backend-notice.bg-danger {
 }
 .backend-panel-head {
   padding: 0 20pt;
-  background-color: #555;
+  background-color: $roman-silver;
   height: 50pt;
   line-height: 50pt;
   font-size: 14pt;
@@ -99,7 +111,7 @@ input#error-msg:checked   ~ .backend-notice.bg-danger {
 // }
 .backend-panel-info {
   h3 {
-    border-bottom: 2pt solid #555;
+    border-bottom: 2pt solid $roman-silver;
   }
 }
 .backend-modal-container {
@@ -142,7 +154,7 @@ input#error-msg:checked   ~ .backend-notice.bg-danger {
   padding: 10pt;
 }
 .backend-modal-footer {
-  border-bottom: 3pt solid #555;
+  border-bottom: 3pt solid $roman-silver;
   text-align: right;
 }
 .backend-modal-close-btn {

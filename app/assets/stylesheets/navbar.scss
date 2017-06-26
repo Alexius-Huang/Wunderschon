@@ -1,3 +1,16 @@
+/* Main Color Scheme */
+$outer-space: #424B54;
+$roman-silver: #7F9296;
+$white: #ffffff;
+$pale-chestnut: #E2B4BD;
+$wild-orchid: #D8759B;
+$sea-foam-greeen: #A9E5BB;
+
+$bootstrap-primary: rgba(2,117,216, 1);
+$bootstrap-success: rgb(92, 184, 92);
+$bootstrap-danger: rgb(217, 83, 79);
+$bootstrap-warning: rgb(240, 173, 78);
+
 #mobile-version-navbar,
 #desktop-version-navbar {
   position: fixed;
@@ -5,11 +18,16 @@
   z-index: 1;
 }
 .navbar-container {
-  background-color: #ddd;
-  border-bottom: 4px solid #888;
+  background-color: $white;
+  border-bottom: 4px solid $pale-chestnut;
   box-sizing: content-box;
   height: 45pt;
   color: #111;
+  transtion: .25s;
+}
+.navbar-container:hover {
+  border-bottom-color: $wild-orchid;
+  transition: .25s;
 }
 .navbar-body {
   line-height: 45pt;
@@ -28,14 +46,20 @@
 }
 .nav-right {
   float: right;
-  padding: 0 10pt;
-  font-size: 12pt;
-  cursor: pointer;
-  transition: .25s;
+  a {
+    display: inline-block;
+    color: $outer-space;
+    height: 45pt;
+    line-height: 45pt;
+    font-size: 12pt;
+    cursor: pointer;
+    transition: .25s;
+    padding: 0 10pt;
+  }
 }
-.nav-right:hover {
-  background-color: #888;
-  color: #ddd;
+.nav-right:hover > a {
+  background-color: $wild-orchid;
+  color: $white;
   transition: .25s;
 }
 #mobile-slide-menu {
@@ -49,7 +73,7 @@
   font-size: 12pt;
   margin: 0 5pt;
   padding: 0 20pt;
-  border-top: 2px dashed #888;
+  border-top: 2px dashed $pale-chestnut;
 }
 #categories-icon {
   width: 25pt;
@@ -72,7 +96,7 @@
   position: absolute;
   height: 3pt;
   width: 100%;
-  background: #888;
+  background: $pale-chestnut;
   border-radius: 8pt;
   opacity: 1;
   left: 10pt;
