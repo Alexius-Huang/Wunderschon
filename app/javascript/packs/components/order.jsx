@@ -76,14 +76,13 @@ class Order extends React.Component {
 
   render() {
     const t = JSON.parse(this.props.translations)
-    debugger
     return (
       <div className="order">
         <OrderLightBox translations={t} />
         <OrderProgressIndicator
           progresses={this.state.progresses}
           currentProgress={this.state.currentProgress}
-          translation={t}
+          translations={t}
         />
         <OrderWrapper
           ref="wrapper"
@@ -96,7 +95,7 @@ class Order extends React.Component {
           previousStep={this.handlePreviousStep}
           nextStep={this.handleNextStep}
           fieldChange={this.handleFieldChange}
-          translation={t}
+          translations={t}
         />
         <OrderForm
           ref="order_form"
@@ -106,7 +105,7 @@ class Order extends React.Component {
           telField={this.state.telField}
           orderFields={this.props.orderFields}
           authenticityToken={this.props.authenticity_token}
-          translation={t}
+          translations={t}
         />
       </div>
     );
