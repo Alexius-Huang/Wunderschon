@@ -44,6 +44,7 @@ gem 'react-rails'
 gem 'settingslogic'
 gem 'simple_form'
 gem 'webpacker'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
