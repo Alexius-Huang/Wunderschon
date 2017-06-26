@@ -2,4 +2,4 @@
   <%= stylesheet_link_tag 'order/new' %>
 <% end %>
 
-<%= react_component 'order', authenticity_token: form_authenticity_token %>
+<%= react_component 'order', authenticity_token: form_authenticity_token, translations: t('order').to_json %>

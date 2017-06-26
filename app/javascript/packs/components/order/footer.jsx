@@ -32,18 +32,19 @@ class OrderFooter extends React.Component {
   }
 
   render() {
+    const t = this.props.translations
     return (
       <div className="order-footer">
         <button
           className={this.previousStepBtnClass()}
           id="previous-step-btn"
           onClick={this.handlePreviousStepClick}
-        >Previous Step</button>
+        >{t.footer.previous_step}</button>
         <button
           className={this.nextStepBtnClass()}
           id="next-step-btn"
           onClick={this.handleNextStepClick}
-        >Next Step</button>
+        >{t.footer.next_step}</button>
       </div>
     )
   }

@@ -19,3 +19,28 @@ en:
     quantity_field:
     footer:
       checkout: Take me Home ~
+
+  order:
+    root:
+    light_box:
+    progress_indicator:
+    progress_icon:
+    wrapper:
+    form:
+    body:
+    footer:
+      next_step: Next Step
+      previous_step: Previous Step
+    section:
+      review_items:
+        title: Review Items
+      order_details:
+        title: Order Details
+        name: Name
+        email: Email
+        address: Address
+        tel: Tel
+      billing_shipping:
+        title: Billing & Shipping
+      confirm:
+        title: Confirm
