@@ -1,0 +1,46 @@
+zh-TW:
+  shopping_cart:
+    root:
+    message:
+      append_to_cart_message: 已加入購物車！
+    icon:
+    wrapper:
+    header:
+      app_name: 購物車
+      total_price: 總價格
+    body:
+    caption:
+      img: 商品圖示
+      title: 商品名稱
+      price: 單價
+      quantity: 數量
+      total_price: 總價
+    item:
+    quantity_field:  
+    footer:
+      checkout: 把我買走
+
+  order:
+    root:
+    light_box:
+    progress_indicator:
+    progress_icon:
+    wrapper:
+    form:
+    body:
+    footer:
+      next_step: 下一步
+      previous_step: 上一步
+    section:
+      review_items:
+        title: 檢視購物車商品
+      order_details:
+        title: 填寫基本資料
+        name: 姓名
+        email: 電郵
+        address: 地址
+        tel: 聯絡電話
+      billing_shipping:
+        title: 送貨方式與付費
+      confirm:
+        title: 確認訂單

@@ -39,6 +39,10 @@ class ShoppingCartMessage extends React.Component {
     $timeoutEvent = null
   }
 
+  productAddedMessage(product) {
+    return `${product.title} ${this.props.translations.message.append_to_cart_message}`
+  }
+
   messagePresent($message = $('.shopping-cart-message')) {
     return $message.css('display') != 'none'
   }

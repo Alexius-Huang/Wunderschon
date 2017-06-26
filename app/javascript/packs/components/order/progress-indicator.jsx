@@ -17,11 +17,13 @@ class OrderProgressIndicator extends React.Component {
   }
 
   render() {
+    const t = this.props.translations
     const renderProgressIcon = this.props.progresses.map((progress, index) =>
       <OrderProgressIcon
         key={index}
         number={progress.number}
         active={this.props.currentProgress >= progress.number}
+        translations={t}
       />
     )
     return (

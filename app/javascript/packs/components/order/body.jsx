@@ -43,19 +43,24 @@ class OrderBody extends React.Component {
   }
 
   render() {
+    const t = this.props.translations
     return (
       <div className="order-body">
         <div className="order-body-wrapper">
-          <OrderReviewItems />
+          <OrderReviewItems translations={t} />
           <OrderOrderDetails
             nameField={this.props.nameField}
             emailField={this.props.emailField}
             addressField={this.props.addressField}
             telField={this.props.telField}
             fieldChange={this.fieldChange}
+            translations={t}
           />
-          <OrderBillingShipping fieldChange={this.fieldChange} />
-          <OrderConfirm />
+          <OrderBillingShipping
+            fieldChange={this.fieldChange}
+            translations={t}
+          />
+          <OrderConfirm translations={t} />
         </div>
       </div>
     )

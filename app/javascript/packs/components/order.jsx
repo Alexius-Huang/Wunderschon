@@ -10,17 +10,18 @@ const $events = {
   'NEXT_STEP': 'NEXT_STEP',
   'FIELD_CHANGE': 'FIELD_CHANGE'
 }
-const $progresses = [
-  { number: 1, title: '檢視購物車商品' },
-  { number: 2, title: '填寫基本資料' },
-  { number: 3, title: '送貨方式與付費' },
-  { number: 4, title: '確認訂單' }
-]
 const $orderFields = ['name', 'email', 'address', 'tel']
 
 class Order extends React.Component {
   constructor(props) {
     super(props)
+    const t = JSON.parse(this.props.translations)
+    const $progresses = [
+      { number: 1, title: t.section.review_items.title     },
+      { number: 2, title: t.section.order_details.title    },
+      { number: 3, title: t.section.billing_shipping.title },
+      { number: 4, title: t.section.confirm.title          }
+    ]
     this.state = {
       currentProgress: 1,
       totalProgress: $progresses.length,
@@ -36,7 +37,6 @@ class Order extends React.Component {
   }
 
   static defaultProps = {
-    totalProgress: $progresses.length,
     orderFields: $orderFields
   };
 
@@ -75,12 +75,14 @@ class Order extends React.Component {
   }
 
   render() {
+    const t = JSON.parse(this.props.translations)
     return (
       <div className="order">
-        <OrderLightBox />
+        <OrderLightBox translations={t} />
         <OrderProgressIndicator
           progresses={this.state.progresses}
           currentProgress={this.state.currentProgress}
+          translations={t}
         />
         <OrderWrapper
           ref="wrapper"
@@ -89,10 +91,11 @@ class Order extends React.Component {
           emailField={this.state.emailField}
           addressField={this.state.addressField}
           telField={this.state.telField}
-          totalProgress={this.props.totalProgress}
+          totalProgress={this.state.totalProgress}
           previousStep={this.handlePreviousStep}
           nextStep={this.handleNextStep}
           fieldChange={this.handleFieldChange}
+          translations={t}
         />
         <OrderForm
           ref="order_form"
@@ -102,6 +105,7 @@ class Order extends React.Component {
           telField={this.state.telField}
           orderFields={this.props.orderFields}
           authenticityToken={this.props.authenticity_token}
+          translations={t}
         />
       </div>
     );
@@ -109,7 +113,6 @@ class Order extends React.Component {
 }
 
 Order.propTypes = {
-  totalProgress: PropTypes.number.isRequired,
   authenticity_token: PropTypes.string.isRequired
 }
 

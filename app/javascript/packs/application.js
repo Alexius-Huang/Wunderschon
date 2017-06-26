@@ -42,6 +42,7 @@ $(document).ready(() => {
     }
 	})
 
+  /* Mounting All the React Components Globally */
   ReactRailsUJS.mountComponents()
 })
 

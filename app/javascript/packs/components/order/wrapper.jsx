@@ -29,6 +29,7 @@ class OrderWrapper extends React.Component {
   }
 
   render() {
+    const t = this.props.translations
     return (
       <div className="order-wrapper">
         <OrderBody
@@ -39,12 +40,14 @@ class OrderWrapper extends React.Component {
           addressField={this.props.addressField}
           telField={this.props.telField}
           currentProgress={this.props.currentProgress}
+          translations={t}
         />
         <OrderFooter
           totalProgress={this.props.totalProgress}
           currentProgress={this.props.currentProgress}
           previousStep={this.previousStep}
           nextStep={this.nextStep}
+          translations={t}
         />
       </div>
     )
