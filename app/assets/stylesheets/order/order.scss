@@ -1,10 +1,22 @@
+/* Main Color Scheme */
+$outer-space: #424B54;
+$outer-space-alpha-30: rgba(66, 75, 84, 0.3);
+$roman-silver: #7F9296;
+$white: #ffffff;
+$pale-chestnut: #E2B4BD;
+$wild-orchid: #D8759B;
+$sea-foam-greeen: #A9E5BB;
+
+$bootstrap-primary: rgba(2,117,216, 1);
+$bootstrap-success: rgb(92, 184, 92);
+$bootstrap-danger: rgb(217, 83, 79);
+$bootstrap-warning: rgb(240, 173, 78);
+
 .order {
   padding-top: 30pt;
   .order-light-box {
     display: none;
-    .order-light-box-wrapper {
-
-    }
+    .order-light-box-wrapper {}
   }
   .order-progress-indicator {
     text-align: center;
@@ -37,7 +49,7 @@
           font-size: 14pt;
           border-radius: 50%;
           text-align: center;
-          background-color: #555;
+          background-color: $roman-silver;
           color: #ddd;
           vertical-align: middle;
         }
@@ -48,17 +60,18 @@
         vertical-align: middle;
         width: 60pt;
         height: 2pt;
-        background-color: #555;
+        background-color: $roman-silver;
       }
       .order-progress-icon.active {
         span {
           background-color: #ddd;
-          color: #333;
+          border-color: $pale-chestnut;
+          color: $wild-orchid;
         }
       }
       .order-progress-icon.active + .order-progress-icon.active:before {
         content: '';
-        background-color: #ddd;
+        background-color: $pale-chestnut;
       }
     }
   }
@@ -71,7 +84,7 @@
       overflow: hidden;
       width: 100%;
       position: relative;
-      background-color: #555;
+      background-color: $roman-silver;
       .order-body-wrapper {
         position: relative;
         width: 9999px;
@@ -88,11 +101,11 @@
                 width: 100%;
                 padding: 5pt;
                 border: 1pt dashed #ddd;
-                background-color: #555;
+                background-color: $roman-silver;
               }
               input:focus {
                 border: 1pt solid #ddd;
-                background-color: #888;
+                background-color: $outer-space-alpha-30;
               }
             }
           }
@@ -101,12 +114,12 @@
     }
     .order-footer {
       width: 100%;
-      background-color: #555;
+      background-color: $roman-silver;
       padding: 20pt;
       text-align: right;
       button {
         background-color: #ddd;
-        color: #555;
+        color: $roman-silver;
       }
       button:active {}
     }

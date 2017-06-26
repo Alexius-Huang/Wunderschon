@@ -23,6 +23,7 @@ class ShoppingCartWrapper extends React.Component {
     event.preventDefault()
     const $wrapper = $('.shopping-cart-wrapper')
     $wrapper.fadeOut()
+    $('.shopping-cart-bg').fadeOut()
   }
 
   addQuantity(productId, quantity = 1) {

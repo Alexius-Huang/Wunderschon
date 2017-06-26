@@ -1,12 +1,39 @@
+/* Main Color Scheme */
+$outer-space: #424B54;
+$outer-space-alpha-30: rgba(66, 75, 84, 0.3);
+$roman-silver: #7F9296;
+$white: #ffffff;
+$pale-chestnut: #E2B4BD;
+$wild-orchid: #D8759B;
+$pale-chestnut-alpha-50: rgba(226, 180, 189, 0.5);
+$sea-foam-greeen: #A9E5BB;
+
+$bootstrap-primary: rgba(2,117,216, 1);
+$bootstrap-success: rgb(92, 184, 92);
+$bootstrap-danger: rgb(217, 83, 79);
+$bootstrap-warning: rgb(240, 173, 78);
+
 .shopping-cart {
+  .shopping-cart-bg {
+    display: none;
+    position: fixed;
+    cursor: pointer;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+  }
   .shopping-cart-icon {
     position: fixed;
+    z-index: 3;
     cursor: pointer;
     width: 80px;
     height: 80px;
     right: 50px;
     bottom: 50px;
-    background-color: rgba(50, 50, 50, 0.5);
+    background-color: $pale-chestnut-alpha-50;
     text-align: center;
     border-radius: 50%;
     transition: background-color .25s;
@@ -29,12 +56,12 @@
       left: -5pt;
       bottom: -5pt;
       color: white;
-      background-color: rgb(255, 50, 50);
+      background-color: $bootstrap-danger;
       border-radius: 3pt;
     }
   }
   .shopping-cart-icon:hover {
-    background-color: rgb(50, 50, 50);
+    background-color: $wild-orchid;
     transition: background-color .25s;
   }
   .shopping-cart-message {
@@ -52,14 +79,15 @@
       display: inline-block;
       margin: 0 auto;
       line-height: 50pt;
-      background-color: rgb(92, 184, 92);
+      background-color: $sea-foam-greeen;
       padding: 0 15pt;
-      color: white;
+      color: $outer-space;
     }
   }
   .shopping-cart-wrapper {
     display: none;
     position: fixed;
+    z-index: 2;
     top: 50%;
     left: 50%;
     width: 550pt;
@@ -70,7 +98,7 @@
     box-sizing: border-box;
     .close-shopping-cart-btn {
       cursor: pointer;
-      background-color: #333;
+      background-color: $wild-orchid;
       display: inline-block;
       position: absolute;
       width: 24pt;
@@ -91,7 +119,7 @@
       height: 40pt;
       line-height: 40pt;
       padding: 0 20pt;
-      background-color: #333;
+      background-color: $outer-space;
       color: white;
     }
     .shopping-cart-body {
@@ -101,9 +129,9 @@
         .row {
           margin: 0;
           padding: 0;
-          color: #333;
+          color: $outer-space;
           height: 30pt;
-          border-bottom: 2pt solid #333;
+          border-bottom: 2pt solid $outer-space;
           div {
             text-align: center;
             height: 30pt;
@@ -112,11 +140,12 @@
         }
       }
       .shopping-cart-item {
+        transition: .25s;
         font-size: 0;
         .row {
           margin: 0;
           padding: 0;
-          color: #333;
+          color: $outer-space;
           height: 75pt;
           .item-img {
             padding: 0;
@@ -147,12 +176,12 @@
             span.deduct-quantity-btn {
               padding: 5pt;
               border-radius: 2pt;
-              border: 1pt dashed #333;
+              border: 1pt dashed $outer-space;
               transition: .25s;
             }
             span.add-quantity-btn:hover,
             span.deduct-quantity-btn:hover {
-              background-color: #333;
+              background-color: $outer-space;
               color: #ddd;
               transition: .25s;
             }
@@ -160,20 +189,25 @@
             span.deduct-quantity-btn.disabled {
               pointer-events: none;
               cursor: wait;
-              background-color: red !important;
+              background-color: $pale-chestnut !important;
+              border-color: $pale-chestnut;
             }
           }
         }
       }
+      .shopping-cart-item:hover {
+        background-color: $pale-chestnut-alpha-50;
+        transition: .25s;
+      }
     }
     .shopping-cart-footer {
-      background-color: #333;
+      background-color: $outer-space;
       height: 40pt;
       line-height: 40pt;
       position: relative;
       #checkout-btn {
         position: absolute;
-        // white-space: nowrap;
+        background-color: $wild-orchid;
         right: 0;
         top: 0;
         padding: 0 25px;
@@ -183,7 +217,7 @@
       }
       #checkout-btn:hover {
         background-color: white;
-        color: #333;
+        color: $outer-space;
         transition: .25s;
       }
     }
@@ -191,7 +225,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  #shopping-cart {
+  .shopping-cart {
     .shopping-cart-icon {
       display: none;
     }

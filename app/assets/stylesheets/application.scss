@@ -18,11 +18,23 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+/* Main Color Scheme */
+$outer-space: #424B54;
+$roman-silver: #7F9296;
+$white: #ffffff;
+$pale-chestnut: #E2B4BD;
+$sea-foam-greeen: #A9E5BB;
+
+$bootstrap-primary: rgba(2,117,216, 1);
+$bootstrap-success: rgb(92, 184, 92);
+$bootstrap-danger: rgb(217, 83, 79);
+$bootstrap-warning: rgb(240, 173, 78);
+
 html, body {
-  background-color: #111;
+  background-color: $outer-space;
   max-width: 100vw;
   width: 100%;
-  color: #ddd;
+  color: $white;
   padding: 0;
   margin: 0;
   font-family: 'Roboto Mono', monospace;
@@ -47,7 +59,7 @@ td {
 input.form-control,
 textarea.form-control,
 select.form-control {
-  background-color: #333;
+  background-color: $outer-space;
   color: #ddd;
   border-radius: 3pt;
   border: 1pt dashed #888;
@@ -56,7 +68,7 @@ select.form-control {
 input.form-control:focus,
 textarea.form-control:focus,
 select.form-control:focus {
-  background-color: #555;
+  background-color: $roman-silver;
   transition: .25s;
 }
 input.disabled,
@@ -70,7 +82,7 @@ a.disabled, button.disabled { pointer-events: none; }
 .btn-default {
   background-color: transparent;
   color: #aaa;
-  border: 1pt solid #555;
+  border: 1pt solid $roman-silver;
   transition: .25s;
 }
 .btn-default:hover {
@@ -112,14 +124,14 @@ a.disabled, button.disabled { pointer-events: none; }
 }
 .bg-primary, .bg-success, .bg-warning, .bg-danger,
 .border-primary, .border-success, .border-warning, .border-danger { transition: .25s; }
-.bg-primary { background-color: rgba(2,117,216, 1); }
-.bg-success { background-color: rgb(92, 184, 92); }
-.bg-warning { background-color: rgb(240, 173, 78); }
-.bg-danger  { background-color: rgb(217, 83, 79); }
-.border-primary { border-color: rgba(2,117,216, 1); }
-.border-success { border-color: rgb(92, 184, 92); }
-.border-warning { border-color: rgb(240, 173, 78); }
-.border-danger  { border-color: rgb(217, 83, 79); }
+.bg-primary { background-color: $bootstrap-primary; }
+.bg-success { background-color: $bootstrap-success; }
+.bg-warning { background-color: $bootstrap-warning; }
+.bg-danger  { background-color: $bootstrap-danger; }
+.border-primary { border-color: $bootstrap-primary; }
+.border-success { border-color: $bootstrap-success; }
+.border-warning { border-color: $bootstrap-warning; }
+.border-danger  { border-color: $bootstrap-danger; }
 
 @keyframes RotateClockwise {
   0% {

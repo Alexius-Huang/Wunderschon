@@ -17,6 +17,7 @@ class ShoppingCart extends React.Component {
     this.setupAddCartItemEvent()
     this.handleAddQuantity = this.handleAddQuantity.bind(this)
     this.handleDeductQuantity = this.handleDeductQuantity.bind(this)
+    this.handleCloseShoppingCart = this.handleCloseShoppingCart.bind(this)
   }
 
   componentWillMount() {
@@ -83,6 +84,10 @@ class ShoppingCart extends React.Component {
     }
   }
 
+  handleCloseShoppingCart(event) {
+    this.refs.wrapper.handleCloseShoppingCart(event)
+  }
+
   updateShoppingCart(event, ...params) {
     this.getCartInfo().then(response => {
       const { total_price: totalPrice, empty: empty, items: items, item_count: itemCount } = response.data;
@@ -117,6 +122,7 @@ class ShoppingCart extends React.Component {
     const t = JSON.parse(this.props.translations)
     return (
       <div className="shopping-cart">
+        <div className="shopping-cart-bg" onClick={this.handleCloseShoppingCart}></div>
         <ShoppingCartMessage
           message={this.state.message}
           ref="message"
@@ -134,6 +140,7 @@ class ShoppingCart extends React.Component {
           addQuantity={this.handleAddQuantity}
           deductQuantity={this.handleDeductQuantity}
           translations={t}
+          ref="wrapper"
         />
       </div>
     )
