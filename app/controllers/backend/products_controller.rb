@@ -44,7 +44,7 @@ class Backend::ProductsController < BackendController
   private
 
   def resource_params
-    params.require(:product).permit(:title, :category_id, :description, :price)
+    params.require(:product).permit(:title, :category_id, :description, :price, :image)
   end
 
   def find_product

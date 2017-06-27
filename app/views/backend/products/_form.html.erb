@@ -13,6 +13,7 @@
       <% end %>
       <%= f.input :description %>
       <%= f.input :price %>
+      <%= f.file_field :image %>
       <%= f.button :submit, t("path.backend.products.#{action}") %>
     <% end %>
   </div>

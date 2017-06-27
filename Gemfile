@@ -37,14 +37,16 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'aasm'
 gem 'bootstrap-sass'
+gem 'carrierwave', '~> 1.0'
+gem 'devise'
 gem 'font-awesome-sass'
 gem 'kaminari'
+gem 'mini_magick'
 gem 'paranoia', '~> 2.2'
 gem 'react-rails'
 gem 'settingslogic'
 gem 'simple_form'
 gem 'webpacker'
-gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
