@@ -264,7 +264,13 @@ For more information, you can read:
 ## Using ReactJS in Rails with Webpacker
 ### Installation
 
-Just run the webpacker built-in command and it'll serve you well:
+Make sure you have webpacker already installed, if not, run:
+
+```
+$ bin/rails webpacker:install
+```
+
+Then just run the webpacker built-in command and it'll serve you well:
 
 ```
 $ bin/rails webpacker:install:react
@@ -272,13 +278,63 @@ $ bin/rails webpacker:install:react
 
 It will automatically configure the `package.json`, `.babelrc` and install dependencies including the `babel-preset-react` which enables you to use `JSX` syntax during development.
 
-Additionally, you should also install `prop-types` package using Yarn:
+**[Deprecated]**
+
+~~Additionally, you should also install `prop-types` package using Yarn:~~
+
+~~`$ yarn add prop-types`~~
+
+~~Because [`React.PropTypes` is deprecated as of React version 15.5](https://facebook.github.io/react/warnings/dont-call-proptypes.html), so if you want to use `type checking` (and it is highly recommended), you should also install the `prop-types` library instead.~~
+
+**[Update]**
+When install `react` with `webpacker`, it also helps you install the `prop-types` library which you don't need to install it by yourself. 
+
+### Using `react-rails` with `webpacker`
+
+Note: Please make sure you have setup `webpacker` with `react`.
+
+Add `react-rails` into your `Gemfile` and run `bundle install`. After installation, run:
 
 ```
-$ yarn add prop-types
+$ rails generate react:install
 ```
 
-Because [`React.PropTypes` is deprecated as of React version 15.5](https://facebook.github.io/react/warnings/dont-call-proptypes.html), so if you want to use `type checking` (and it is highly recommended), you should also install the `prop-types` library instead.
+Which generates:
+
+- `components/` directory for your React components
+- `ReactRailsUJS` setup in `packs/application.js`
+- packs/server_rendering.js for server-side rendering
+
+Please visit [`react-rails`](https://github.com/reactjs/react-rails) repository for more information. This README only covers the step to setup ReactJS environment.
+
+In the `application/javascript/packs/application.js`, you can see that `react-rails` automatically add several lines which enables you to controller React components rendering:
+
+```js
+// Support component names relative to this directory:
+var componentRequireContext = require.context('/components', true)
+var ReactRailsUJS = require('react_ujs')
+ReactRailsUJS.useContext(componentRequireContext)
+```
+
+Add the statement `ReactRailsUJS.mountComponents` in the document ready event, which enables to use the simple React component helper:
+
+```js
+$(document).ready(function() {
+  ReactRailsUJS.mountComponents()
+})
+```
+
+So when we want to render the component file, say `hello.jsx`, we can use the `react_component` helper to render it:
+
+```html
+<%= react_component 'hello' %>
+```
+
+We can also pass in default `props` with a Ruby hash which is very helpful:
+
+```html
+<%= react_component 'hello', greetings: 'hello', name: 'Maxwell-Alexius' %>
+```
 
 ### Hello World Example
 
