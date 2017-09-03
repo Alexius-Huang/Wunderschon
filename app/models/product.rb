@@ -2,6 +2,7 @@
 class Product < ApplicationRecord
   include AASM
   acts_as_paranoid
+  mount_uploader :image, ProductImageUploader
   belongs_to :category
   has_many :order_details, foreign_key: 'product_id', class_name: 'OrderItem'
 
